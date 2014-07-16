@@ -58,6 +58,12 @@ namespace Ragnar
         return result;
     }
 
+    bool AlertFactory::PeekWait(System::TimeSpan timeout)
+    {
+        libtorrent::alert const* a = this->_session.wait_for_alert(libtorrent::milliseconds(timeout.TotalMilliseconds));
+        return a != 0;
+    }
+
     Alert^ AlertFactory::GetAlert(std::auto_ptr<libtorrent::alert> alert)
     {
         switch (alert->type())

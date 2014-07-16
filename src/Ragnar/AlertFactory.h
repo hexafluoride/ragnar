@@ -27,5 +27,7 @@ namespace Ragnar
         virtual Alert^ Pop();
 
         virtual System::Collections::Generic::IEnumerable<Alert^>^ PopAll();
+
+        virtual bool PeekWait(System::TimeSpan timeout);
     };
 }

@@ -9,5 +9,7 @@ namespace Ragnar
         Alert^ Pop();
 
         System::Collections::Generic::IEnumerable<Alert^>^ PopAll();
+
+        bool PeekWait(System::TimeSpan timeout);
     };
 }
