@@ -113,8 +113,6 @@
     <ClCompile Include="Alert.cpp" />
     <ClCompile Include="AlertFactory.cpp" />
     <ClCompile Include="AnnounceEntry.cpp" />
-    <ClCompile Include="IAlertFactory.cpp" />
-    <ClCompile Include="ISession.cpp" />
     <ClCompile Include="MetadataReceivedAlert.cpp" />
     <ClCompile Include="PartialPieceInfo.cpp" />
     <ClCompile Include="PeerInfo.cpp" />

@@ -118,16 +118,10 @@
     <ClCompile Include="SaveResumeDataAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ISession.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TorrentAddedAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AlertFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IAlertFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MetadataReceivedAlert.cpp">
