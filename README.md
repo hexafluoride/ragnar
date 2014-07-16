@@ -74,10 +74,10 @@ option.set keep-going : false ;
 
 The important part is the `using msvc : 12.0`. Make your changes and save the file.
 
-In your command prompt, run `b2`. This will take a while. Have a coffee. When it's finished. Proceed with step 2.
+In your command prompt, run `b2`. This will take a while. Have a coffee - when it's finished, proceed with step 2.
 
 ### 2. Building libtorrent
-Download and unpack libtorrent. For the example, I will assume Boost lives at `C:\Code\libtorrent-rasterbar-1.0.0`. Set the environment variable `LIBTORRENT` to this directory.
+Download and unpack libtorrent. For the example, I will assume libtorrent lives at `C:\Code\libtorrent-rasterbar-1.0.0`. Set the environment variable `LIBTORRENT` to this directory.
 
 Create the file `%LIBTORRENT%\build.bat` with the following contents, [credits](http://thomasfischer.biz/building-libtorrent-for-windows-with-visual-studio-2012/)
 
