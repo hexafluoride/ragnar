@@ -1,12 +1,18 @@
 #pragma once
 
-#include <libtorrent\torrent_handle.hpp>
-
-#include "TorrentInfo.h"
-#include "TorrentStatus.h"
+namespace libtorrent
+{
+    struct torrent_handle;
+}
 
 namespace Ragnar
 {
+    ref class AnnounceEntry;
+    ref class PartialPieceInfo;
+    ref class PeerInfo;
+    ref class TorrentInfo;
+    ref class TorrentStatus;
+
     public ref class TorrentHandle
     {
     private:
@@ -18,22 +24,34 @@ namespace Ragnar
         TorrentHandle(const libtorrent::torrent_handle &handle);
 
     public:
+        enum class MoveFlags : int
+        {
+            AlwaysReplaceFiles = 0,
+            FailIfExist = 1,
+            DontReplace = 2
+        };
+
         ~TorrentHandle();
 
         // add_piece
-        // read_piece
-        // have_piece
-        // get_peer_info
+        
+        void ReadPiece(int pieceIndex);
+
+        bool HavePiece(int pieceIndex);
+
+        System::Collections::Generic::IEnumerable<PeerInfo^>^ GetPeerInfo();
 
         property System::String^ InfoHash { System::String^ get(); }
 
         TorrentStatus^ QueryStatus();
 
-        // get_download_queue
+        System::Collections::Generic::IEnumerable<PartialPieceInfo^>^ GetDownloadQueue();
 
-        // clear_piece_deadlines()
-        // reset_piece_deadline()
-        // set_piece_deadline()
+        void ResetPieceDeadline(int pieceIndex);
+
+        void ClearPieceDeadlines();
+
+        void SetPieceDeadline(int pieceIndex, int deadline); // TODO: flags
 
         void SetPriority(int priority);
 
@@ -43,7 +61,8 @@ namespace Ragnar
 
         // add_tracker()
         // replace_trackers()
-        // trackers()
+
+        System::Collections::Generic::IEnumerable<AnnounceEntry^>^ GetTrackers();
 
         // url_seeds()
         // add_url_seed()
@@ -107,10 +126,13 @@ namespace Ragnar
         // void prioritize_pieces(std::vector<int> const& pieces) const;
         // std::vector<int> piece_priorities() const;
 
-        // int file_priority (int index) const;
-        // void prioritize_files(std::vector<int> const& files) const;
-        // void file_priority(int index, int priority) const;
-        // std::vector<int> file_priorities() const;
+        int GetFilePriority(int fileIndex);
+
+        void SetFilePriorities(cli::array<int>^ filePriorities);
+
+        void SetFilePriority(int fileIndex, int priority);
+
+        cli::array<int>^ GetFilePriorities();
 
         void ForceReannounce();
 
@@ -134,7 +156,7 @@ namespace Ragnar
 
         void SetTrackerLogin(System::String^ userName, System::String^ password);
 
-        // TODO: void MoveStorage(System::String^ savePath) // flags?
+        void MoveStorage(System::String^ savePath, MoveFlags flags);
 
         void RenameFile(int fileIndex, System::String^ fileName);
 

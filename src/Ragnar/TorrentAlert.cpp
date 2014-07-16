@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "TorrentAlert.h"
+#include "TorrentHandle.h"
+
+#include <libtorrent\alert_types.hpp>
 
 namespace Ragnar
 {

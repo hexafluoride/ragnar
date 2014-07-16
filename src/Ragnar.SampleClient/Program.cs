@@ -26,7 +26,7 @@ namespace Ragnar.SampleClient
 
                 var p = new AddTorrentParams
                 {
-                    SavePath = "./",
+                    SavePath = "C:\\Downloads",
                     TorrentInfo = new TorrentInfo(args[0])
                 };
 

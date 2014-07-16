@@ -1,18 +1,23 @@
 #pragma once
 
-#include <libtorrent\alert.hpp>
+namespace libtorrent
+{
+    class alert;
+}
 
 namespace Ragnar
 {
+    using namespace System;
+
     public ref class Alert abstract
     {
     private:
-        System::String^ _message;
+        String^ _message;
 
     internal:
         Alert(libtorrent::alert* alert);
 
     public:
-        property System::String^ Message { System::String^ get(); }
+        property String^ Message { String^ get(); }
     };
 }

@@ -1,11 +1,14 @@
 #pragma once
 
-#include <libtorrent\session.hpp>
-
-#include "TorrentInfo.h"
+namespace libtorrent
+{
+    struct add_torrent_params;
+}
 
 namespace Ragnar
 {
+    ref class TorrentInfo;
+
     public ref class AddTorrentParams
     {
     private:

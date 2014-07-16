@@ -1,11 +1,11 @@
 #include "stdafx.h"
-#include "TorrentAddedAlert.h"
+#include "TorrentFinishedAlert.h"
 
 #include <libtorrent\alert_types.hpp>
 
 namespace Ragnar
 {
-    TorrentAddedAlert::TorrentAddedAlert(libtorrent::torrent_added_alert* alert)
+    TorrentFinishedAlert::TorrentFinishedAlert(libtorrent::torrent_finished_alert* alert)
         : TorrentAlert((libtorrent::torrent_alert*) alert)
     {
     }

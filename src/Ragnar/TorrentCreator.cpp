@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "TorrentCreator.h"
+#include "TorrentInfo.h"
 #include "Utils.h"
+
+#include <libtorrent\create_torrent.hpp>
 
 namespace Ragnar
 {

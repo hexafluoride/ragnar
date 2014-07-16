@@ -1,10 +1,14 @@
 #pragma once
 
-#include <libtorrent\torrent_handle.hpp>
-#include "TorrentState.h"
+namespace libtorrent
+{
+    struct torrent_status;
+}
 
 namespace Ragnar
 {
+    enum class TorrentState;
+
     public ref class TorrentStatus
     {
     private:
@@ -274,10 +278,7 @@ namespace Ragnar
 
         property TorrentState State
         {
-            TorrentState get()
-            {
-                return static_cast<TorrentState>(this->_status->state);
-            }
+            TorrentState get();
         }
 
         property bool NeedSaveResume

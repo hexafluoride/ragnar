@@ -1,11 +1,14 @@
 #pragma once
 
-#include <libtorrent\create_torrent.hpp>
-
-#include "TorrentInfo.h"
+namespace libtorrent
+{
+    struct create_torrent;
+}
 
 namespace Ragnar
 {
+    ref class TorrentInfo;
+
     public ref class TorrentCreator
     {
     private:

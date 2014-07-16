@@ -85,17 +85,25 @@
     <ClInclude Include="AddTorrentParams.h" />
     <ClInclude Include="Alert.h" />
     <ClInclude Include="AlertFactory.h" />
+    <ClInclude Include="AnnounceEntry.h" />
     <ClInclude Include="IAlertFactory.h" />
     <ClInclude Include="ISession.h" />
     <ClInclude Include="MetadataReceivedAlert.h" />
+    <ClInclude Include="PartialPieceInfo.h" />
+    <ClInclude Include="PeerInfo.h" />
     <ClInclude Include="SaveResumeDataAlert.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionAlertCategory.h" />
+    <ClInclude Include="SessionStatus.h" />
+    <ClInclude Include="StateChangedAlert.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="TorrentAddedAlert.h" />
     <ClInclude Include="TorrentAlert.h" />
     <ClInclude Include="TorrentCreator.h" />
+    <ClInclude Include="TorrentFinishedAlert.h" />
     <ClInclude Include="TorrentHandle.h" />
     <ClInclude Include="TorrentInfo.h" />
+    <ClInclude Include="TorrentRemovedAlert.h" />
     <ClInclude Include="TorrentState.h" />
     <ClInclude Include="TorrentStatus.h" />
     <ClInclude Include="Utils.h" />
@@ -104,11 +112,16 @@
     <ClCompile Include="AddTorrentParams.cpp" />
     <ClCompile Include="Alert.cpp" />
     <ClCompile Include="AlertFactory.cpp" />
+    <ClCompile Include="AnnounceEntry.cpp" />
     <ClCompile Include="IAlertFactory.cpp" />
     <ClCompile Include="ISession.cpp" />
     <ClCompile Include="MetadataReceivedAlert.cpp" />
+    <ClCompile Include="PartialPieceInfo.cpp" />
+    <ClCompile Include="PeerInfo.cpp" />
     <ClCompile Include="SaveResumeDataAlert.cpp" />
     <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionStatus.cpp" />
+    <ClCompile Include="StateChangedAlert.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -116,8 +129,10 @@
     <ClCompile Include="TorrentAddedAlert.cpp" />
     <ClCompile Include="TorrentAlert.cpp" />
     <ClCompile Include="TorrentCreator.cpp" />
+    <ClCompile Include="TorrentFinishedAlert.cpp" />
     <ClCompile Include="TorrentHandle.cpp" />
     <ClCompile Include="TorrentInfo.cpp" />
+    <ClCompile Include="TorrentRemovedAlert.cpp" />
     <ClCompile Include="TorrentStatus.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>

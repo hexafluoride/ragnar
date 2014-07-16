@@ -1,11 +1,14 @@
-#include <libtorrent\alert_types.hpp>
-
 #include "stdafx.h"
+#include "AddTorrentParams.h"
 #include "AlertFactory.h"
-#include "SaveResumeDataAlert.h"
 #include "Session.h"
-#include "TorrentAddedAlert.h"
+#include "SessionStatus.h"
+#include "TorrentHandle.h"
 #include "Utils.h"
+
+#include <libtorrent\bencode.hpp>
+#include <libtorrent\lazy_entry.hpp>
+#include <libtorrent\session.hpp>
 
 namespace Ragnar
 {
@@ -38,6 +41,11 @@ namespace Ragnar
         this->_session->save_state(entry);
 
         return Utils::GetByteArrayFromLibtorrentEntry(entry);
+    }
+
+    void Session::PostTorrentUpdates()
+    {
+        this->_session->post_torrent_updates();
     }
 
     TorrentHandle^ Session::FindTorrent(System::String^ infoHash)
@@ -92,6 +100,11 @@ namespace Ragnar
         return this->_session->is_paused();
     }
 
+    SessionStatus^ Session::QueryStatus()
+    {
+        return gcnew SessionStatus(this->_session->status());
+    }
+
     bool Session::IsDhtRunning::get()
     {
         return this->_session->is_dht_running();
@@ -142,9 +155,9 @@ namespace Ragnar
         return this->_alertFactory;
     }
     
-    void Session::SetAlertMask(unsigned int mask)
+    void Session::SetAlertMask(SessionAlertCategory mask)
     {
-        this->_session->set_alert_mask(mask);
+        this->_session->set_alert_mask((unsigned int) mask);
     }
 
     void Session::StopLsd()

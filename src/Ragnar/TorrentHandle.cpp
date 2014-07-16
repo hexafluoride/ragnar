@@ -1,6 +1,15 @@
 #include "stdafx.h"
+
+#include "AnnounceEntry.h"
+#include "PartialPieceInfo.h"
+#include "PeerInfo.h"
+#include "TorrentInfo.h"
 #include "TorrentHandle.h"
+#include "TorrentStatus.h"
 #include "Utils.h"
+
+#include <libtorrent\peer_info.hpp>
+#include <libtorrent\torrent_handle.hpp>
 
 namespace Ragnar
 {
@@ -14,6 +23,31 @@ namespace Ragnar
         delete this->_handle;
     }
 
+    void TorrentHandle::ReadPiece(int pieceIndex)
+    {
+        this->_handle->read_piece(pieceIndex);
+    }
+
+    bool TorrentHandle::HavePiece(int pieceIndex)
+    {
+        return this->_handle->have_piece(pieceIndex);
+    }
+
+    System::Collections::Generic::IEnumerable<PeerInfo^>^ TorrentHandle::GetPeerInfo()
+    {
+        std::vector<libtorrent::peer_info> peers;
+        this->_handle->get_peer_info(peers);
+
+        auto result = gcnew System::Collections::Generic::List<PeerInfo^>(peers.size());
+
+        for (auto i = peers.begin(); i != peers.end(); i++)
+        {
+            result->Add(gcnew PeerInfo(*i));
+        }
+
+        return result;
+    }
+
     System::String^ TorrentHandle::InfoHash::get()
     {
         return gcnew String(libtorrent::to_hex(this->_handle->info_hash().to_string()).c_str());
@@ -24,6 +58,36 @@ namespace Ragnar
         return gcnew TorrentStatus(this->_handle->status());
     }
 
+    System::Collections::Generic::IEnumerable<PartialPieceInfo^>^ TorrentHandle::GetDownloadQueue()
+    {
+        std::vector<libtorrent::partial_piece_info> queue;
+        this->_handle->get_download_queue(queue);
+
+        auto result = gcnew System::Collections::Generic::List<PartialPieceInfo^>(queue.size());
+
+        for (auto i = queue.begin(); i != queue.end(); i++)
+        {
+            result->Add(gcnew PartialPieceInfo(*i));
+        }
+
+        return result;
+    }
+
+    void TorrentHandle::ResetPieceDeadline(int pieceIndex)
+    {
+        this->_handle->reset_piece_deadline(pieceIndex);
+    }
+
+    void TorrentHandle::ClearPieceDeadlines()
+    {
+        this->_handle->clear_piece_deadlines();
+    }
+
+    void TorrentHandle::SetPieceDeadline(int pieceIndex, int deadline)
+    {
+        this->_handle->set_piece_deadline(pieceIndex, deadline);
+    }
+
     void TorrentHandle::SetPriority(int priority)
     {
         this->_handle->set_priority(priority);
@@ -32,6 +96,19 @@ namespace Ragnar
     void TorrentHandle::ClearError()
     {
         this->_handle->clear_error();
+    }
+
+    System::Collections::Generic::IEnumerable<AnnounceEntry^>^ TorrentHandle::GetTrackers()
+    {
+        auto trackers = this->_handle->trackers();
+        auto result = gcnew System::Collections::Generic::List<AnnounceEntry^>(trackers.size());
+
+        for (auto i = trackers.begin(); i != trackers.end(); i++)
+        {
+            result->Add(gcnew AnnounceEntry(*i));
+        }
+
+        return result;
     }
 
     void TorrentHandle::Pause()
@@ -136,6 +213,41 @@ namespace Ragnar
         return gcnew TorrentInfo(*ptr.get());
     }
 
+    int TorrentHandle::GetFilePriority(int fileIndex)
+    {
+        return this->_handle->file_priority(fileIndex);
+    }
+
+    void TorrentHandle::SetFilePriorities(cli::array<int>^ filePriorities)
+    {
+        std::vector<int> prios(filePriorities->Length);
+
+        for (int i = 0; i < filePriorities->Length; i++)
+        {
+            prios[i] = filePriorities[i];
+        }
+
+        this->_handle->prioritize_files(prios);
+    }
+
+    void TorrentHandle::SetFilePriority(int fileIndex, int priority)
+    {
+        this->_handle->file_priority(fileIndex, priority);
+    }
+
+    cli::array<int>^ TorrentHandle::GetFilePriorities()
+    {
+        auto prios = this->_handle->file_priorities();
+        auto result = gcnew cli::array<int>(prios.size());
+
+        for (int i = 0; i < prios.size(); i++)
+        {
+            result[i] = prios[i];
+        }
+
+        return result;
+    }
+
     void TorrentHandle::ForceReannounce()
     {
         this->_handle->force_reannounce();
@@ -209,6 +321,11 @@ namespace Ragnar
     void TorrentHandle::SetTrackerLogin(System::String^ userName, System::String^ password)
     {
         this->_handle->set_tracker_login(Utils::GetStdStringFromManagedString(userName), Utils::GetStdStringFromManagedString(password));
+    }
+
+    void TorrentHandle::MoveStorage(System::String^ savePath, MoveFlags flags)
+    {
+        this->_handle->move_storage(Utils::GetStdStringFromManagedString(savePath), (int) flags);
     }
 
     void TorrentHandle::RenameFile(int fileIndex, System::String^ fileName)

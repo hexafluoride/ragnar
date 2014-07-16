@@ -1,7 +1,11 @@
 #pragma once
 
-#include <libtorrent\alert_types.hpp>
 #include "TorrentAlert.h"
+
+namespace libtorrent
+{
+    struct metadata_received_alert;
+}
 
 namespace Ragnar
 {

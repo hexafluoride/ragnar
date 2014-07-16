@@ -2,6 +2,8 @@
 #include "TorrentInfo.h"
 #include "Utils.h"
 
+#include <libtorrent\torrent_info.hpp>
+
 namespace Ragnar
 {
     TorrentInfo::TorrentInfo(const libtorrent::torrent_info &info)
@@ -27,9 +29,34 @@ namespace Ragnar
         delete this->_info;
     }
 
-    System::String^ TorrentInfo::Name::get()
+    void TorrentInfo::RenameFile(int fileIndex, System::String^ fileName)
     {
-        return gcnew System::String(this->_info->name().c_str());
+        this->_info->rename_file(fileIndex, Utils::GetStdStringFromManagedString(fileName));
+    }
+
+    void TorrentInfo::AddTracker(System::String^ url)
+    {
+        this->AddTracker(url, 0);
+    }
+
+    void TorrentInfo::AddTracker(System::String^ url, int tier)
+    {
+        this->_info->add_tracker(Utils::GetStdStringFromManagedString(url), tier);
+    }
+
+    int TorrentInfo::NumPieces::get()
+    {
+        return this->_info->num_pieces();
+    }
+
+    long long TorrentInfo::TotalSize::get()
+    {
+        return this->_info->total_size();
+    }
+
+    int TorrentInfo::PieceLength::get()
+    {
+        return this->_info->piece_length();
     }
 
     System::String^ TorrentInfo::InfoHash::get()
@@ -37,8 +64,65 @@ namespace Ragnar
         return gcnew String(libtorrent::to_hex(this->_info->info_hash().to_string()).c_str());
     }
 
-    long long TorrentInfo::TotalSize::get()
+    int TorrentInfo::NumFiles::get()
     {
-        return this->_info->total_size();
+        return this->_info->num_files();
+    }
+
+    System::String^ TorrentInfo::SslCert::get()
+    {
+        return gcnew System::String(this->_info->ssl_cert().c_str());
+    }
+
+    bool TorrentInfo::IsValid::get()
+    {
+        return this->_info->is_valid();
+    }
+
+    bool TorrentInfo::Private::get()
+    {
+        return this->_info->priv();
+    }
+
+    int TorrentInfo::PieceSize(int index)
+    {
+        return this->_info->piece_size(index);
+    }
+
+    System::Nullable<DateTime> TorrentInfo::CreationDate::get()
+    {
+        auto date = this->_info->creation_date();
+
+        if (!date)
+        {
+            return Nullable<DateTime>();
+        }
+
+        return Utils::GetDateTimeFromTimeT(date.get());
+    }
+
+    System::String^ TorrentInfo::Name::get()
+    {
+        return gcnew System::String(this->_info->name().c_str());
+    }
+
+    System::String^ TorrentInfo::Comment::get()
+    {
+        return gcnew System::String(this->_info->comment().c_str());
+    }
+
+    System::String^ TorrentInfo::Creator::get()
+    {
+        return gcnew System::String(this->_info->creator().c_str());
+    }
+
+    int TorrentInfo::MetadataSize::get()
+    {
+        return this->_info->metadata_size();
+    }
+
+    bool TorrentInfo::IsMerkleTorrent::get()
+    {
+        return this->_info->is_merkle_torrent();
     }
 }

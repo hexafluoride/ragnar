@@ -1,12 +1,19 @@
 #pragma once
 
-#include <libtorrent\session.hpp>
-
 #include "IAlertFactory.h"
-#include "Alert.h"
+
+#include <memory>
+
+namespace libtorrent
+{
+    class session;
+    class alert;
+}
 
 namespace Ragnar
 {
+    ref class Alert;
+
     public ref class AlertFactory : IAlertFactory
     {
     private:

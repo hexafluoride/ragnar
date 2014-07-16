@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "AddTorrentParams.h"
+#include "TorrentInfo.h"
 #include "Utils.h"
 
+#include <libtorrent\add_torrent_params.hpp>
 #include <libtorrent\magnet_uri.hpp>
 
 namespace Ragnar

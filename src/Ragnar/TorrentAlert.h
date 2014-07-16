@@ -1,13 +1,16 @@
 #pragma once
 
-#include <libtorrent\alert_types.hpp>
-#include <libtorrent\torrent_handle.hpp>
-
 #include "Alert.h"
-#include "TorrentHandle.h"
+
+namespace libtorrent
+{
+    struct torrent_alert;
+}
 
 namespace Ragnar
 {
+    ref class TorrentHandle;
+
     public ref class TorrentAlert abstract : Alert
     {
     private:

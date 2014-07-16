@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Alert.h"
-
 namespace Ragnar
 {
+    ref class Alert;
+
     public interface class IAlertFactory
     {
         Alert^ Pop();

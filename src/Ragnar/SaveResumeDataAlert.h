@@ -1,8 +1,11 @@
 #pragma once
 
-#include <libtorrent\alert_types.hpp>
-
 #include "TorrentAlert.h"
+
+namespace libtorrent
+{
+    struct save_resume_data_alert;
+}
 
 namespace Ragnar
 {

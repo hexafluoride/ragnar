@@ -66,8 +66,7 @@ namespace Ragnar
 
         static System::Net::IPAddress^ GetIPAddress(boost::asio::ip::address const &address)
         {
-            IPAddress ^ret = IPAddress::Parse(gcnew String(address.to_string().c_str()));
-            return ret;
+            return IPAddress::Parse(gcnew String(address.to_string().c_str()));
         }
 
         static DateTime GetDateTimeFromTimeT(time_t time)

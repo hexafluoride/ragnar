@@ -1,11 +1,16 @@
-#include <libtorrent\alert.hpp>
-#include <libtorrent\alert_types.hpp>
-
 #include "stdafx.h"
+#include "Alert.h"
 #include "AlertFactory.h"
 #include "MetadataReceivedAlert.h"
 #include "SaveResumeDataAlert.h"
+#include "StateChangedAlert.h"
 #include "TorrentAddedAlert.h"
+#include "TorrentFinishedAlert.h"
+#include "TorrentRemovedAlert.h"
+
+#include <libtorrent\alert.hpp>
+#include <libtorrent\alert_types.hpp>
+#include <libtorrent\session.hpp>
 
 namespace Ragnar
 {
@@ -63,8 +68,17 @@ namespace Ragnar
         case libtorrent::save_resume_data_alert::alert_type:
             return gcnew SaveResumeDataAlert((libtorrent::save_resume_data_alert*) alert.get());
 
+        case libtorrent::state_changed_alert::alert_type:
+            return gcnew StateChangedAlert((libtorrent::state_changed_alert*) alert.get());
+
         case libtorrent::torrent_added_alert::alert_type:
             return gcnew TorrentAddedAlert((libtorrent::torrent_added_alert*) alert.get());
+
+        case libtorrent::torrent_finished_alert::alert_type:
+            return gcnew TorrentFinishedAlert((libtorrent::torrent_finished_alert*) alert.get());
+
+        case libtorrent::torrent_removed_alert::alert_type:
+            return gcnew TorrentRemovedAlert((libtorrent::torrent_removed_alert*) alert.get());
         }
 
         return nullptr;

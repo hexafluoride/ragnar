@@ -1,6 +1,9 @@
 #include "stdafx.h"
+#include "TorrentState.h"
 #include "TorrentStatus.h"
 #include "Utils.h"
+
+#include <libtorrent\torrent_handle.hpp>
 
 namespace Ragnar
 {
@@ -277,6 +280,11 @@ namespace Ragnar
     int TorrentStatus::Priority::get()
     {
         return this->_status->priority;
+    }
+
+    TorrentState TorrentStatus::State::get()
+    {
+        return static_cast<TorrentState>(this->_status->state);
     }
 
     bool TorrentStatus::NeedSaveResume::get()

@@ -2,6 +2,8 @@
 #include "SaveResumeDataAlert.h"
 #include "Utils.h"
 
+#include <libtorrent\alert_types.hpp>
+
 namespace Ragnar
 {
     SaveResumeDataAlert::SaveResumeDataAlert(libtorrent::save_resume_data_alert* alert)

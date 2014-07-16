@@ -1,13 +1,11 @@
 #pragma once
 
-#include <libtorrent\bencode.hpp>
-#include <libtorrent\lazy_entry.hpp>
-#include <libtorrent\session.hpp>
-
-#include "AddTorrentParams.h"
-#include "IAlertFactory.h"
 #include "ISession.h"
-#include "TorrentHandle.h"
+
+namespace libtorrent
+{
+    class session;
+}
 
 namespace Ragnar
 {
@@ -21,9 +19,6 @@ namespace Ragnar
         Session();
         ~Session();
 
-        // TODO: void load_state (lazy_entry const& e);
-        // TODO: void save_state(entry& e, boost::uint32_t flags = 0xffffffff) const;
-
         virtual void LoadState(cli::array<byte>^ buffer);
 
         virtual cli::array<byte>^ SaveState();
@@ -31,9 +26,10 @@ namespace Ragnar
         // TODO: void refresh_torrent_status (std::vector<torrent_status>* ret, boost::uint32_t flags = 0) const;
         // TODO: void get_torrent_status(std::vector<torrent_status>* ret, boost::function<bool(torrent_status const&)> const& pred, boost::uint32_t flags = 0) const;
 
-        // void PostTorrentUpdates(); TODO: Implement when adding alerts
+        virtual void PostTorrentUpdates();
 
         virtual TorrentHandle^ FindTorrent(System::String^ infoHash);
+
         virtual System::Collections::Generic::IEnumerable<TorrentHandle^>^ GetTorrents();
 
         virtual TorrentHandle^ AddTorrent(AddTorrentParams^ params);
@@ -48,7 +44,7 @@ namespace Ragnar
 
         virtual property bool IsPaused { bool get(); }
 
-        // TODO: session_status status () const;
+        virtual SessionStatus^ QueryStatus();
 
         // TODO: cache_status get_cache_status () const;
 
@@ -119,8 +115,7 @@ namespace Ragnar
 
         virtual property IAlertFactory^ Alerts { IAlertFactory^ get(); }
 
-        // TODO: void set_alert_mask (boost::uint32_t m);
-        virtual void SetAlertMask(unsigned int mask);
+        virtual void SetAlertMask(SessionAlertCategory mask);
 
         virtual void StopLsd();
 
