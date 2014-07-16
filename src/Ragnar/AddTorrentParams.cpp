@@ -4,6 +4,7 @@
 #include "Utils.h"
 
 #include <libtorrent\add_torrent_params.hpp>
+#include <libtorrent\file_pool.hpp>
 #include <libtorrent\magnet_uri.hpp>
 
 namespace Ragnar
