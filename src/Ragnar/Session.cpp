@@ -2,6 +2,7 @@
 #include "AddTorrentParams.h"
 #include "AlertFactory.h"
 #include "Session.h"
+#include "SessionAlertCategory.h"
 #include "SessionStatus.h"
 #include "TorrentHandle.h"
 #include "Utils.h"
