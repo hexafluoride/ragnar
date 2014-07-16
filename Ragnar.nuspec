@@ -12,4 +12,7 @@
     <description>A managed wrapper for libtorrent.</description>
     <tags>BitTorrent LibTorrent</tags>
   </metadata>
+  <files>
+    <file src="Release/Ragnar.dll" target="lib\net45" />
+  </files>
 </package>
