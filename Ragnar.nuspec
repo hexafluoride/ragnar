@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Ragnar</id>
+    <version>$version$</version>
+    <authors>Viktor Elofsson</authors>
+    <owners>Viktor Elofsson</owners>
+    <licenseUrl>https://github.com/libragnar/ragnar/blob/master/license.txt</licenseUrl>
+    <projectUrl>https://github.com/libragnar/ragnar</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A managed wrapper for libtorrent.</description>
+    <tags>BitTorrent LibTorrent</tags>
+  </metadata>
+</package>
