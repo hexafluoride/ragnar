@@ -6,6 +6,7 @@
 #include "StateChangedAlert.h"
 #include "TorrentAddedAlert.h"
 #include "TorrentFinishedAlert.h"
+#include "TorrentPausedAlert.h"
 #include "TorrentRemovedAlert.h"
 
 #include <libtorrent\alert.hpp>
@@ -82,6 +83,9 @@ namespace Ragnar
 
         case libtorrent::torrent_finished_alert::alert_type:
             return gcnew TorrentFinishedAlert((libtorrent::torrent_finished_alert*) alert.get());
+
+        case libtorrent::torrent_paused_alert::alert_type:
+            return gcnew TorrentPausedAlert((libtorrent::torrent_paused_alert*) alert.get());
 
         case libtorrent::torrent_removed_alert::alert_type:
             return gcnew TorrentRemovedAlert((libtorrent::torrent_removed_alert*) alert.get());

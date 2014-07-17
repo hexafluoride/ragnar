@@ -103,6 +103,7 @@
     <ClInclude Include="TorrentFinishedAlert.h" />
     <ClInclude Include="TorrentHandle.h" />
     <ClInclude Include="TorrentInfo.h" />
+    <ClInclude Include="TorrentPausedAlert.h" />
     <ClInclude Include="TorrentRemovedAlert.h" />
     <ClInclude Include="TorrentState.h" />
     <ClInclude Include="TorrentStatus.h" />
@@ -130,6 +131,7 @@
     <ClCompile Include="TorrentFinishedAlert.cpp" />
     <ClCompile Include="TorrentHandle.cpp" />
     <ClCompile Include="TorrentInfo.cpp" />
+    <ClCompile Include="TorrentPausedAlert.cpp" />
     <ClCompile Include="TorrentRemovedAlert.cpp" />
     <ClCompile Include="TorrentStatus.cpp" />
     <ClCompile Include="Utils.cpp" />
