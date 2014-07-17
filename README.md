@@ -76,6 +76,8 @@ The important part is the `using msvc : 12.0`. Make your changes and save the fi
 
 In your command prompt, run `b2`. This will take a while. Have a coffee - when it's finished, proceed with step 2.
 
+**Note:** If you previously set the environment variable `BOOST_ROOT` from the command prompt. Make sure you restart the command prompt.
+
 ### 2. Building libtorrent
 Download and unpack libtorrent. For the example, I will assume libtorrent lives at `C:\Code\libtorrent-rasterbar-1.0.0`. Set the environment variable `LIBTORRENT` to this directory.
 
