@@ -8,6 +8,7 @@
 #include "TorrentFinishedAlert.h"
 #include "TorrentPausedAlert.h"
 #include "TorrentRemovedAlert.h"
+#include "TorrentResumedAlert.h"
 
 #include <libtorrent\alert.hpp>
 #include <libtorrent\alert_types.hpp>
@@ -89,6 +90,9 @@ namespace Ragnar
 
         case libtorrent::torrent_removed_alert::alert_type:
             return gcnew TorrentRemovedAlert((libtorrent::torrent_removed_alert*) alert.get());
+
+        case libtorrent::torrent_resumed_alert::alert_type:
+            return gcnew TorrentResumedAlert((libtorrent::torrent_resumed_alert*) alert.get());
         }
 
         return nullptr;

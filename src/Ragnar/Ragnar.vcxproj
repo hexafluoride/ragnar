@@ -105,6 +105,7 @@
     <ClInclude Include="TorrentInfo.h" />
     <ClInclude Include="TorrentPausedAlert.h" />
     <ClInclude Include="TorrentRemovedAlert.h" />
+    <ClInclude Include="TorrentResumedAlert.h" />
     <ClInclude Include="TorrentState.h" />
     <ClInclude Include="TorrentStatus.h" />
     <ClInclude Include="Utils.h" />
@@ -133,6 +134,7 @@
     <ClCompile Include="TorrentInfo.cpp" />
     <ClCompile Include="TorrentPausedAlert.cpp" />
     <ClCompile Include="TorrentRemovedAlert.cpp" />
+    <ClCompile Include="TorrentResumedAlert.cpp" />
     <ClCompile Include="TorrentStatus.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>

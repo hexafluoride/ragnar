@@ -89,6 +89,9 @@
     <ClInclude Include="TorrentPausedAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TorrentResumedAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -155,6 +158,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TorrentPausedAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TorrentResumedAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
