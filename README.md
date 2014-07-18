@@ -49,52 +49,11 @@ using(var session = new Session())
 ```
 
 ## How to build from source
-To build Ragnar from source, you will need the following sources and tools.
+The repository includes a `bootstrap.bat` file which runs the `run-bootstrap.ps1` script. This will download and compile both Boost and libtorrent automatically.
 
-* [Boost (v1.55.0)](http://www.boost.org/users/history/version_1_55_0.html)
-* [libtorrent (v1.0.0)](http://sourceforge.net/projects/libtorrent/files/libtorrent/)
-* Visual Studio 2013 (MSVC 12.0)
-* The environment variable `BOOST_ROOT` pointing to the Boost sources.
-* The environment variable `LIBTORRENT` pointing to the libtorrent sources.
+### 1. Run the `bootstrap.bat` file
 
-### 1. Building Boost
-Download and unpack Boost. For the example, I will assume Boost lives at `C:\Code\boost_1_55_0`. Set the environment variable `BOOST_ROOT` to this directory.
-
-In a command prompt, `cd` to `BOOST_ROOT` and run `bootstrap`. *Keep this command prompt open.*
-
-When the bootstrapping process finishes, open `%BOOST_ROOT%\project-config.jam`. It should look something like this,
-
-```
-import option ; 
- 
-using msvc : 12.0 ; 
- 
-option.set keep-going : false ; 
-```
-
-The important part is the `using msvc : 12.0`. Make your changes and save the file.
-
-In your command prompt, run `b2`. This will take a while. Have a coffee - when it's finished, proceed with step 2.
-
-**Note:** If you previously set the environment variable `BOOST_ROOT` from the command prompt. Make sure you restart the command prompt.
-
-### 2. Building libtorrent
-Download and unpack libtorrent. For the example, I will assume libtorrent lives at `C:\Code\libtorrent-rasterbar-1.0.0`. Set the environment variable `LIBTORRENT` to this directory.
-
-Create the file `%LIBTORRENT%\build.bat` with the following contents, [credits](http://thomasfischer.biz/building-libtorrent-for-windows-with-visual-studio-2012/)
-
-```
-@echo on
-set BOOST_BUILD_PATH=%BOOST_ROOT%
-SET PATH=%PATH%;%BOOST_ROOT%
-SET CL=/I%BOOST_ROOT%
-bjam toolset=msvc-12.0 boost-link=static geoip=off encryption=tommath link=static variant=%1
-@pause
-```
-
-In a command prompt, `cd %LIBTORRENT%` and run `build debug` followed by `build release`. This will build libtorrent as a static library in both debug and release configurations.
-
-### 3. Building Ragnar
+### 2. Building Ragnar
 Open `Ragnar.sln` in Visual Studio 2013. Press `F6`. Wait a while. Success. If not - report an issue.
 
 ## Contributing
