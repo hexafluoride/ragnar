@@ -15,6 +15,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Ragnar</RootNamespace>
+    <BoostDir>$(SolutionDir)\packages\boost_1_55_0</BoostDir>
+    <LibtorrentDir>$(SolutionDir)\packages\libtorrent-rasterbar-1.0.0</LibtorrentDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -44,36 +46,36 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <ReferencePath>Debug;$(ReferencePath)</ReferencePath>
-    <IncludePath>$(BOOST_ROOT);$(OPENSSL)\inc32;$(LIBTORRENT)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOST_ROOT)\stage\lib;$(OPENSSL)\out32;$(LIBTORRENT)\bin\msvc-12.0\debug\link-static\threading-multi;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BoostDir);$(LibtorrentDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BoostDir)\stage\lib;$(LibtorrentDir)\bin\msvc-12.0\debug\link-static\threading-multi;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(BOOST_ROOT);$(OPENSSL)\inc32;$(LIBTORRENT)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BOOST_ROOT)\stage\lib;$(OPENSSL)\out32;$(LIBTORRENT)\bin\msvc-12.0\release\link-static\threading-multi;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BoostDir);$(LibtorrentDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BoostDir)\stage\lib;$(LibtorrentDir)\bin\msvc-12.0\release\link-static\threading-multi;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;BOOST_ASIO_ENABLE_CANCELIO;BOOST_ASIO_HASH_MAP_BUCKETS=1021;BOOST_ASIO_SEPARATE_COMPILATION;BOOST_EXCEPTION_DISABLE;TORRENT_DEBUG;TORRENT_DISABLE_GEO_IP;TORRENT_USE_I2P=1;TORRENT_USE_TOMMATH;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0501;WIN32;BOOST_ASIO_ENABLE_CANCELIO;BOOST_ASIO_HASH_MAP_BUCKETS=1021;BOOST_ASIO_SEPARATE_COMPILATION;BOOST_EXCEPTION_DISABLE;TORRENT_DEBUG;TORRENT_DISABLE_GEO_IP;TORRENT_USE_I2P=1;TORRENT_USE_TOMMATH;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libtorrent.lib;libeay32.lib;ssleay32.lib;kernel32.lib;user32.lib;shell32.lib;uuid.lib;ole32.lib;advapi32.lib;ws2_32.lib;Gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libtorrent.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;NDEBUG;BOOST_ASIO_ENABLE_CANCELIO;BOOST_ASIO_HASH_MAP_BUCKETS=1021;BOOST_ASIO_SEPARATE_COMPILATION;BOOST_EXCEPTION_DISABLE;TORRENT_DISABLE_GEO_IP;TORRENT_USE_I2P=1;TORRENT_USE_TOMMATH;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0501;WIN32;BOOST_ASIO_ENABLE_CANCELIO;BOOST_ASIO_HASH_MAP_BUCKETS=1021;BOOST_ASIO_SEPARATE_COMPILATION;BOOST_EXCEPTION_DISABLE;NDEBUG;TORRENT_DISABLE_GEO_IP;TORRENT_USE_I2P=1;TORRENT_USE_TOMMATH;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libtorrent.lib;libeay32.lib;ssleay32.lib;kernel32.lib;user32.lib;shell32.lib;uuid.lib;ole32.lib;advapi32.lib;ws2_32.lib;Gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libtorrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

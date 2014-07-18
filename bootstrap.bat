@@ -1,0 +1,1 @@
+@powershell .\run-bootstrap.ps1
