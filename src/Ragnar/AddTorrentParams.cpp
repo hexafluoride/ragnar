@@ -146,7 +146,7 @@ namespace Ragnar
         libtorrent::add_torrent_params params;
         libtorrent::error_code ec;
         
-        libtorrent::parse_magnet_uri(Utils::GetStdStringFromManagedString(uri), params, ec);
+        libtorrent::parse_magnet_uri(msclr::interop::marshal_as<std::string>(uri), params, ec);
 
         if (ec)
         {
