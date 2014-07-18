@@ -65,6 +65,14 @@ namespace Ragnar
             void set(cli::array<byte>^ value);
         }
 
+        property int MaxUploads { int get(); void set(int value); }
+
+        property int MaxConnections { int get(); void set(int value); }
+
+        property int UploadLimit { int get(); void set(int value); }
+
+        property int DownloadLimit { int get(); void set(int value); }
+
         static AddTorrentParams^ FromMagnetUri(System::String^ uri);
     };
 }

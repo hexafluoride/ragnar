@@ -61,7 +61,7 @@ namespace Ragnar
 
     void AddTorrentParams::SavePath::set(System::String^ value)
     {
-        this->_params->save_path = Utils::GetStdStringFromManagedString(value);
+        this->_params->save_path = msclr::interop::marshal_as<std::string>(value);
     }
 
     System::String^ AddTorrentParams::Url::get()
@@ -71,7 +71,7 @@ namespace Ragnar
 
     void AddTorrentParams::Url::set(System::String^ value)
     {
-        this->_params->url = Utils::GetStdStringFromManagedString(value);
+        this->_params->url = msclr::interop::marshal_as<std::string>(value);
     }
 
     TorrentInfo^ AddTorrentParams::TorrentInfo::get()
@@ -99,6 +99,46 @@ namespace Ragnar
         {
             this->_params->resume_data[i] = value[i];
         }
+    }
+
+    int AddTorrentParams::MaxUploads::get()
+    {
+        return this->_params->max_uploads;
+    }
+
+    void AddTorrentParams::MaxUploads::set(int value)
+    {
+        this->_params->max_uploads = value;
+    }
+
+    int AddTorrentParams::MaxConnections::get()
+    {
+        return this->_params->max_connections;
+    }
+
+    void AddTorrentParams::MaxConnections::set(int value)
+    {
+        this->_params->max_connections = value;
+    }
+
+    int AddTorrentParams::UploadLimit::get()
+    {
+        return this->_params->upload_limit;
+    }
+
+    void AddTorrentParams::UploadLimit::set(int value)
+    {
+        this->_params->upload_limit = value;
+    }
+
+    int AddTorrentParams::DownloadLimit::get()
+    {
+        return this->_params->download_limit;
+    }
+
+    void AddTorrentParams::DownloadLimit::set(int value)
+    {
+        this->_params->download_limit = value;
     }
 
     AddTorrentParams^ Ragnar::AddTorrentParams::FromMagnetUri(System::String^ uri)
