@@ -9,6 +9,18 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="Header Files\Collections">
+      <UniqueIdentifier>{050bea27-6e88-4b0c-8739-d56d2dd4a54a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collections">
+      <UniqueIdentifier>{749f77bc-9e7c-4c2c-bee4-b4dc49945423}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interop">
+      <UniqueIdentifier>{eda099b4-0324-4fd5-b0e7-6cf494cd479e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interop">
+      <UniqueIdentifier>{8b049e74-b8a7-41b0-894b-dded875fed39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stdafx.h">
@@ -92,6 +104,15 @@
     <ClInclude Include="TorrentResumedAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Collections\Vector.h">
+      <Filter>Header Files\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="Interop\StringValueConverter.h">
+      <Filter>Header Files\Interop</Filter>
+    </ClInclude>
+    <ClInclude Include="Interop\ValueConverter.h">
+      <Filter>Header Files\Interop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -162,6 +183,12 @@
     </ClCompile>
     <ClCompile Include="TorrentResumedAlert.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Collections\Vector.cpp">
+      <Filter>Source Files\Collections</Filter>
+    </ClCompile>
+    <ClCompile Include="Interop\StringValueConverter.cpp">
+      <Filter>Source Files\Interop</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

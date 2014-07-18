@@ -2,26 +2,56 @@
 #include "AddTorrentParams.h"
 #include "TorrentInfo.h"
 #include "Utils.h"
+#include "Collections\Vector.h"
+#include "Interop\StringValueConverter.h"
 
 #include <libtorrent\add_torrent_params.hpp>
 #include <libtorrent\file_pool.hpp>
 #include <libtorrent\magnet_uri.hpp>
+#include <msclr\marshal_cppstd.h>
 
 namespace Ragnar
 {
+    using namespace Ragnar::Collections;
+    using namespace Ragnar::Interop;
+
     AddTorrentParams::AddTorrentParams()
     {
         this->_params = new libtorrent::add_torrent_params();
+        this->_trackers = gcnew Vector<std::string, System::String^>(this->_params->trackers, gcnew StringValueConverter());
+        this->_urlSeeds = gcnew Vector<std::string, System::String^>(this->_params->url_seeds, gcnew StringValueConverter());
     }
 
     AddTorrentParams::AddTorrentParams(const libtorrent::add_torrent_params &params)
     {
         this->_params = new libtorrent::add_torrent_params(params);
+        this->_trackers = gcnew Vector<std::string, System::String^>(this->_params->trackers, gcnew StringValueConverter());
+        this->_urlSeeds = gcnew Vector<std::string, System::String^>(this->_params->url_seeds, gcnew StringValueConverter());
     }
 
     AddTorrentParams::~AddTorrentParams()
     {
         delete this->_params;
+    }
+
+    IList<System::String^>^ AddTorrentParams::Trackers::get()
+    {
+        return this->_trackers;
+    }
+
+    IList<System::String^>^ AddTorrentParams::UrlSeeds::get()
+    {
+        return this->_urlSeeds;
+    }
+
+    System::String^ AddTorrentParams::Name::get()
+    {
+        return gcnew System::String(this->_params->name.c_str());
+    }
+
+    void AddTorrentParams::Name::set(System::String^ value)
+    {
+        this->_params->name = msclr::interop::marshal_as<std::string>(value);
     }
 
     System::String^ AddTorrentParams::SavePath::get()
