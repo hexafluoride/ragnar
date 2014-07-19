@@ -113,6 +113,9 @@
     <ClInclude Include="Interop\ValueConverter.h">
       <Filter>Header Files\Interop</Filter>
     </ClInclude>
+    <ClInclude Include="TorrentCheckedAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -189,6 +192,9 @@
     </ClCompile>
     <ClCompile Include="Interop\StringValueConverter.cpp">
       <Filter>Source Files\Interop</Filter>
+    </ClCompile>
+    <ClCompile Include="TorrentCheckedAlert.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
