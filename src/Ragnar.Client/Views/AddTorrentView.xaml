@@ -1,0 +1,19 @@
+﻿<Window x:Class="Ragnar.Client.Views.AddTorrentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{Binding Title}" Height="300" ShowInTaskbar="False" Width="400">
+    <StackPanel>
+        <GroupBox Header="Save Path" Margin="10" Padding="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <TextBox Grid.Column="0" Text="{Binding SavePath}" />
+            </Grid>
+        </GroupBox>
+        
+        <Button Margin="10,0,10,0" cal:Message.Attach="Add">OK</Button>
+    </StackPanel>
+</Window>

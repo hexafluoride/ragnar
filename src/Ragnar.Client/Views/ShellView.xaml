@@ -1,0 +1,34 @@
+﻿<Window x:Class="Ragnar.Client.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="480" Width="800" Title="Ragnar">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Add Torrent" cal:Message.Attach="ShowAddTorrent" />
+            </MenuItem>
+        </Menu>
+        
+        <ToolBar DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <Button>Start</Button>
+                <Button>Stop</Button>
+            </StackPanel>
+        </ToolBar>
+        
+        <ListView ItemsSource="{Binding Torrents}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="250" Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Width="100" Header="Size" />
+                    <GridViewColumn Width="100" Header="Progress" DisplayMemberBinding="{Binding Progress}" />
+                    <GridViewColumn Width="120" Header="Status" />
+                    <GridViewColumn Width="100" Header="Down Speed" />
+                    <GridViewColumn Width="100" Header="Up Speed" />
+                    <GridViewColumn Width="100" Header="ETA" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
