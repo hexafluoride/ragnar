@@ -116,6 +116,9 @@
     <ClInclude Include="TorrentCheckedAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StatsAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -194,6 +197,9 @@
       <Filter>Source Files\Interop</Filter>
     </ClCompile>
     <ClCompile Include="TorrentCheckedAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StatsAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
