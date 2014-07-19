@@ -15,6 +15,8 @@ namespace Ragnar
         libtorrent::torrent_status* _status;
 
     internal:
+        libtorrent::torrent_status* get_ptr() { return _status; }
+
         TorrentStatus(const libtorrent::torrent_status &status);
         ~TorrentStatus();
 

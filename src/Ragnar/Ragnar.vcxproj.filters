@@ -119,6 +119,12 @@
     <ClInclude Include="StatsAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StateUpdateAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interop\TorrentStatusValueConverter.h">
+      <Filter>Header Files\Interop</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -201,6 +207,12 @@
     </ClCompile>
     <ClCompile Include="StatsAlert.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StateUpdateAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interop\TorrentStatusValueConverter.cpp">
+      <Filter>Source Files\Interop</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
