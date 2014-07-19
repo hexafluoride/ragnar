@@ -4,6 +4,8 @@
 #include "MetadataReceivedAlert.h"
 #include "SaveResumeDataAlert.h"
 #include "StateChangedAlert.h"
+#include "StateUpdateAlert.h"
+#include "StatsAlert.h"
 #include "TorrentAddedAlert.h"
 #include "TorrentFinishedAlert.h"
 #include "TorrentPausedAlert.h"
@@ -79,6 +81,12 @@ namespace Ragnar
 
         case libtorrent::state_changed_alert::alert_type:
             return gcnew StateChangedAlert((libtorrent::state_changed_alert*) alert.get());
+
+        case libtorrent::state_update_alert::alert_type:
+            return gcnew StateUpdateAlert((libtorrent::state_update_alert*) alert.get());
+
+        case libtorrent::stats_alert::alert_type:
+            return gcnew StatsAlert((libtorrent::stats_alert*) alert.get());
 
         case libtorrent::torrent_added_alert::alert_type:
             return gcnew TorrentAddedAlert((libtorrent::torrent_added_alert*) alert.get());

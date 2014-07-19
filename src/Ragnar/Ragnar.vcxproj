@@ -99,6 +99,8 @@
     <ClInclude Include="SessionAlertCategory.h" />
     <ClInclude Include="SessionStatus.h" />
     <ClInclude Include="StateChangedAlert.h" />
+    <ClInclude Include="StateUpdateAlert.h" />
+    <ClInclude Include="StatsAlert.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="Interop\StringValueConverter.h" />
     <ClInclude Include="TorrentAddedAlert.h" />
@@ -113,6 +115,7 @@
     <ClInclude Include="TorrentResumedAlert.h" />
     <ClInclude Include="TorrentState.h" />
     <ClInclude Include="TorrentStatus.h" />
+    <ClInclude Include="Interop\TorrentStatusValueConverter.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Interop\ValueConverter.h" />
   </ItemGroup>
@@ -129,6 +132,8 @@
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionStatus.cpp" />
     <ClCompile Include="StateChangedAlert.cpp" />
+    <ClCompile Include="StateUpdateAlert.cpp" />
+    <ClCompile Include="StatsAlert.cpp" />
     <ClCompile Include="Stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -145,6 +150,7 @@
     <ClCompile Include="TorrentRemovedAlert.cpp" />
     <ClCompile Include="TorrentResumedAlert.cpp" />
     <ClCompile Include="TorrentStatus.cpp" />
+    <ClCompile Include="Interop\TorrentStatusValueConverter.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
