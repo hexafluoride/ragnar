@@ -52,10 +52,18 @@ namespace Ragnar.Client.Services
 
         private void ReadAlerts()
         {
-            var timeout = TimeSpan.FromSeconds(1);
+            var timeout = TimeSpan.FromSeconds(0.5);
+            var lastPost = DateTime.Now;
 
             while (!_isStopping)
             {
+                if ((DateTime.Now - lastPost).TotalSeconds > 1)
+                {
+                    _session.PostTorrentUpdates();
+
+                    lastPost = DateTime.Now;
+                }
+
                 var foundAlerts = _session.Alerts.PeekWait(timeout);
                 if (!foundAlerts) continue;
 

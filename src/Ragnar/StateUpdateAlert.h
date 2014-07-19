@@ -1,6 +1,6 @@
 #pragma once
 
-#include "TorrentAlert.h"
+#include "Alert.h"
 
 namespace libtorrent
 {
@@ -13,7 +13,7 @@ namespace Ragnar
 
     ref class TorrentStatus;
 
-    public ref class StateUpdateAlert : TorrentAlert
+    public ref class StateUpdateAlert : Alert
     {
     private:
         IList<TorrentStatus^>^ _statuses;
