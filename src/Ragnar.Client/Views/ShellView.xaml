@@ -1,8 +1,14 @@
 ﻿<Window x:Class="Ragnar.Client.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:cal="http://www.caliburnproject.org"
+        xmlns:local="clr-namespace:Ragnar.Client.Data"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Height="480" Width="800" Title="Ragnar">
+    <Window.Resources>
+        <local:FloatToPercentConverter x:Key="FloatToPercentConverter" />
+        <local:NumberToFileSizeConverter x:Key="NumberToFileSizeConverter" />
+        <local:NumberToSpeedConverter x:Key="NumberToSpeedConverter" />
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
@@ -10,23 +16,15 @@
             </MenuItem>
         </Menu>
         
-        <ToolBar DockPanel.Dock="Top">
-            <StackPanel Orientation="Horizontal">
-                <Button>Start</Button>
-                <Button>Stop</Button>
-            </StackPanel>
-        </ToolBar>
-        
         <ListView ItemsSource="{Binding Torrents}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="250" Header="Name" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Width="100" Header="Size" />
-                    <GridViewColumn Width="100" Header="Progress" DisplayMemberBinding="{Binding Progress}" />
-                    <GridViewColumn Width="120" Header="Status" />
-                    <GridViewColumn Width="100" Header="Down Speed" />
-                    <GridViewColumn Width="100" Header="Up Speed" />
-                    <GridViewColumn Width="100" Header="ETA" />
+                    <GridViewColumn Width="100" Header="Size" DisplayMemberBinding="{Binding Size, Converter={StaticResource NumberToFileSizeConverter}}" />
+                    <GridViewColumn Width="100" Header="Progress" DisplayMemberBinding="{Binding Progress, Converter={StaticResource FloatToPercentConverter}}" />
+                    <GridViewColumn Width="120" Header="Status" DisplayMemberBinding="{Binding State}" />
+                    <GridViewColumn Width="100" Header="Down Speed" DisplayMemberBinding="{Binding DownloadRate, Converter={StaticResource NumberToSpeedConverter}}" />
+                    <GridViewColumn Width="100" Header="Up Speed" DisplayMemberBinding="{Binding UploadRate, Converter={StaticResource NumberToSpeedConverter}}" />
                 </GridView>
             </ListView.View>
         </ListView>

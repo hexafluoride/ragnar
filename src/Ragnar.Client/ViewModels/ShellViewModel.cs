@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Caliburn.Micro;
 using Microsoft.Win32;
 using Ragnar.Client.Messages;
@@ -9,6 +10,7 @@ namespace Ragnar.Client.ViewModels
 {
     public sealed class ShellViewModel : Screen
         , IHandle<TorrentAddedMessage>
+        , IHandle<TorrentUpdatedMessage>
     {
         private readonly ISessionService _sessionService;
         private readonly IWindowManager _windowManager;
@@ -39,6 +41,17 @@ namespace Ragnar.Client.ViewModels
         public void Handle(TorrentAddedMessage message)
         {
             _torrents.Add(message.Torrent);
+        }
+
+        public void Handle(TorrentUpdatedMessage message)
+        {
+            var torrent = Torrents.SingleOrDefault(t => t.InfoHash == message.Torrent.InfoHash);
+            if (torrent == null) return;
+
+            torrent.Progress = message.Torrent.Progress;
+            torrent.DownloadRate = message.Torrent.DownloadRate;
+            torrent.UploadRate = message.Torrent.UploadRate;
+            torrent.State = message.Torrent.State;
         }
 
         protected override void OnActivate()

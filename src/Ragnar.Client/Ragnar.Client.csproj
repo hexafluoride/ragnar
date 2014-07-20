@@ -77,8 +77,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\FloatToPercentConverter.cs" />
+    <Compile Include="Data\NumberToSpeedConverter.cs" />
+    <Compile Include="Data\NumberToFileSizeConverter.cs" />
     <Compile Include="Messages\AddTorrentMessage.cs" />
     <Compile Include="Messages\TorrentAddedMessage.cs" />
+    <Compile Include="Messages\TorrentUpdatedMessage.cs" />
     <Compile Include="Models\Torrent.cs" />
     <Compile Include="Services\ISessionService.cs" />
     <Compile Include="Services\SessionService.cs" />

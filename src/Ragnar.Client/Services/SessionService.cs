@@ -77,6 +77,10 @@ namespace Ragnar.Client.Services
                     {
                         Handle((TorrentAddedAlert) alert);
                     }
+                    else if (alert is StateUpdateAlert)
+                    {
+                        Handle((StateUpdateAlert) alert);
+                    }
                 }
             }
         }
@@ -85,10 +89,32 @@ namespace Ragnar.Client.Services
         {
             var msg = new TorrentAddedMessage(new Torrent
             {
-                Name = alert.Handle.TorrentFile.Name
+                InfoHash = alert.Handle.InfoHash,
+                Name = alert.Handle.TorrentFile.Name,
+                Size = alert.Handle.TorrentFile.TotalSize,
+                State = alert.Handle.QueryStatus().State
             });
 
             _eventAggregator.PublishOnBackgroundThread(msg);
+        }
+
+        private void Handle(StateUpdateAlert alert)
+        {
+            for (var i = 0; i < alert.Statuses.Count; i++)
+            {
+                var status = alert.Statuses[i];
+                var torrent = new Torrent
+                {
+                    InfoHash = status.InfoHash,
+                    Name = status.Name,
+                    Progress = status.Progress,
+                    DownloadRate = status.DownloadRate,
+                    UploadRate = status.UploadRate,
+                    State = status.State
+                };
+
+                _eventAggregator.PublishOnBackgroundThread(new TorrentUpdatedMessage(torrent));
+            }
         }
     }
 }
