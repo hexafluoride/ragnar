@@ -40,9 +40,6 @@ namespace Ragnar.Client.Services
         {
             _isStopping = true;
             _alertsThread.Join();
-
-            var sessionImpl = _session as Session;
-            if (sessionImpl != null) sessionImpl.Dispose();
         }
 
         public void Handle(AddTorrentMessage message)
