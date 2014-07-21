@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Alert.h"
 #include "AlertFactory.h"
+#include "FileCompletedAlert.h"
 #include "MetadataReceivedAlert.h"
 #include "SaveResumeDataAlert.h"
 #include "StateChangedAlert.h"
@@ -73,6 +74,9 @@ namespace Ragnar
     {
         switch (alert->type())
         {
+        case libtorrent::file_completed_alert::alert_type:
+            return gcnew FileCompletedAlert(static_cast<libtorrent::file_completed_alert*>(alert.get()));
+
         case libtorrent::metadata_received_alert::alert_type:
             return gcnew MetadataReceivedAlert((libtorrent::metadata_received_alert*) alert.get());
 

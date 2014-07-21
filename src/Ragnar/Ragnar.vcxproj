@@ -89,6 +89,7 @@
     <ClInclude Include="AlertFactory.h" />
     <ClInclude Include="AnnounceEntry.h" />
     <ClInclude Include="Collections\Vector.h" />
+    <ClInclude Include="FileCompletedAlert.h" />
     <ClInclude Include="IAlertFactory.h" />
     <ClInclude Include="ISession.h" />
     <ClInclude Include="MetadataReceivedAlert.h" />
@@ -125,6 +126,7 @@
     <ClCompile Include="AlertFactory.cpp" />
     <ClCompile Include="AnnounceEntry.cpp" />
     <ClCompile Include="Collections\Vector.cpp" />
+    <ClCompile Include="FileCompletedAlert.cpp" />
     <ClCompile Include="MetadataReceivedAlert.cpp" />
     <ClCompile Include="PartialPieceInfo.cpp" />
     <ClCompile Include="PeerInfo.cpp" />
