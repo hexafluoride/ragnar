@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "AddTorrentParams.h"
 #include "AlertFactory.h"
+#include "Fingerprint.h"
 #include "Session.h"
 #include "SessionAlertCategory.h"
 #include "SessionStatus.h"
@@ -16,6 +17,12 @@ namespace Ragnar
     Session::Session()
     {
         this->_session = new libtorrent::session();
+        this->_alertFactory = gcnew AlertFactory(*this->_session);
+    }
+
+    Session::Session(Fingerprint^ fingerprint)
+    {
+        this->_session = new libtorrent::session(*fingerprint->get_ptr());
         this->_alertFactory = gcnew AlertFactory(*this->_session);
     }
 

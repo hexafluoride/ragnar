@@ -9,6 +9,8 @@ namespace libtorrent
 
 namespace Ragnar
 {
+    ref class Fingerprint;
+
     public ref class Session : ISession
     {
     private:
@@ -17,6 +19,8 @@ namespace Ragnar
 
     public:
         Session();
+        Session(Fingerprint^ fingerprint);
+
         ~Session();
 
         virtual void LoadState(cli::array<byte>^ buffer);

@@ -91,6 +91,7 @@
     <ClInclude Include="Collections\Vector.h" />
     <ClInclude Include="FileCompletedAlert.h" />
     <ClInclude Include="FileRenamedAlert.h" />
+    <ClInclude Include="Fingerprint.h" />
     <ClInclude Include="IAlertFactory.h" />
     <ClInclude Include="ISession.h" />
     <ClInclude Include="MetadataReceivedAlert.h" />
@@ -129,6 +130,7 @@
     <ClCompile Include="Collections\Vector.cpp" />
     <ClCompile Include="FileCompletedAlert.cpp" />
     <ClCompile Include="FileRenamedAlert.cpp" />
+    <ClCompile Include="Fingerprint.cpp" />
     <ClCompile Include="MetadataReceivedAlert.cpp" />
     <ClCompile Include="PartialPieceInfo.cpp" />
     <ClCompile Include="PeerInfo.cpp" />
