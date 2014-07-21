@@ -134,6 +134,9 @@
     <ClInclude Include="Fingerprint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SHA1Hash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -230,6 +233,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Fingerprint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SHA1Hash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

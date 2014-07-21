@@ -7,6 +7,7 @@ namespace libtorrent
 
 namespace Ragnar
 {
+    ref class SHA1Hash;
     enum class TorrentState;
 
     public ref class TorrentStatus
@@ -353,9 +354,9 @@ namespace Ragnar
             bool get();
         }
 
-        property System::String^ InfoHash
+        property SHA1Hash^ InfoHash
         {
-            System::String^ get();
+            SHA1Hash^ get();
         }
     };
 }

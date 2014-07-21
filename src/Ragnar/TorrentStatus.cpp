@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "SHA1Hash.h"
 #include "TorrentState.h"
 #include "TorrentStatus.h"
 #include "Utils.h"
@@ -357,8 +358,8 @@ namespace Ragnar
         return this->_status->moving_storage;
     }
 
-    System::String^ TorrentStatus::InfoHash::get()
+    SHA1Hash^ TorrentStatus::InfoHash::get()
     {
-        return gcnew System::String(libtorrent::to_hex(this->_status->info_hash.to_string()).c_str());
+        return gcnew SHA1Hash(this->_status->info_hash);
     }
 }

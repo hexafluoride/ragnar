@@ -8,6 +8,7 @@ namespace libtorrent
 namespace Ragnar
 {
     ref class AnnounceEntry;
+    ref class SHA1Hash;
     ref class PartialPieceInfo;
     ref class PeerInfo;
     ref class TorrentInfo;
@@ -41,7 +42,7 @@ namespace Ragnar
 
         System::Collections::Generic::IEnumerable<PeerInfo^>^ GetPeerInfo();
 
-        property System::String^ InfoHash { System::String^ get(); }
+        property SHA1Hash^ InfoHash { SHA1Hash^ get(); }
 
         TorrentStatus^ QueryStatus();
 

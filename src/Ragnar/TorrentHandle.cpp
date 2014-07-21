@@ -3,6 +3,7 @@
 #include "AnnounceEntry.h"
 #include "PartialPieceInfo.h"
 #include "PeerInfo.h"
+#include "SHA1Hash.h"
 #include "TorrentInfo.h"
 #include "TorrentHandle.h"
 #include "TorrentStatus.h"
@@ -48,9 +49,9 @@ namespace Ragnar
         return result;
     }
 
-    System::String^ TorrentHandle::InfoHash::get()
+    SHA1Hash^ TorrentHandle::InfoHash::get()
     {
-        return gcnew String(libtorrent::to_hex(this->_handle->info_hash().to_string()).c_str());
+        return gcnew SHA1Hash(this->_handle->info_hash());
     }
 
     TorrentStatus^ TorrentHandle::QueryStatus()

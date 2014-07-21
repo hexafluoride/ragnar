@@ -86,7 +86,7 @@ namespace Ragnar.Client.Services
         {
             var msg = new TorrentAddedMessage(new Torrent
             {
-                InfoHash = alert.Handle.InfoHash,
+                InfoHash = alert.Handle.InfoHash.ToHex(),
                 Name = alert.Handle.TorrentFile.Name,
                 Size = alert.Handle.TorrentFile.TotalSize,
                 State = alert.Handle.QueryStatus().State
@@ -102,7 +102,7 @@ namespace Ragnar.Client.Services
                 var status = alert.Statuses[i];
                 var torrent = new Torrent
                 {
-                    InfoHash = status.InfoHash,
+                    InfoHash = status.InfoHash.ToHex(),
                     Name = status.Name,
                     Progress = status.Progress,
                     DownloadRate = status.DownloadRate,
