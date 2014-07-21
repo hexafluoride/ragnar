@@ -78,37 +78,37 @@ namespace Ragnar
             return gcnew FileCompletedAlert(static_cast<libtorrent::file_completed_alert*>(alert.get()));
 
         case libtorrent::metadata_received_alert::alert_type:
-            return gcnew MetadataReceivedAlert((libtorrent::metadata_received_alert*) alert.get());
+            return gcnew MetadataReceivedAlert(static_cast<libtorrent::metadata_received_alert*>(alert.get()));
 
         case libtorrent::save_resume_data_alert::alert_type:
-            return gcnew SaveResumeDataAlert((libtorrent::save_resume_data_alert*) alert.get());
+            return gcnew SaveResumeDataAlert(static_cast<libtorrent::save_resume_data_alert*>(alert.get()));
 
         case libtorrent::state_changed_alert::alert_type:
-            return gcnew StateChangedAlert((libtorrent::state_changed_alert*) alert.get());
+            return gcnew StateChangedAlert(static_cast<libtorrent::state_changed_alert*>(alert.get()));
 
         case libtorrent::state_update_alert::alert_type:
-            return gcnew StateUpdateAlert((libtorrent::state_update_alert*) alert.get());
+            return gcnew StateUpdateAlert(static_cast<libtorrent::state_update_alert*>(alert.get()));
 
         case libtorrent::stats_alert::alert_type:
-            return gcnew StatsAlert((libtorrent::stats_alert*) alert.get());
+            return gcnew StatsAlert(static_cast<libtorrent::stats_alert*>(alert.get()));
 
         case libtorrent::torrent_added_alert::alert_type:
-            return gcnew TorrentAddedAlert((libtorrent::torrent_added_alert*) alert.get());
+            return gcnew TorrentAddedAlert(static_cast<libtorrent::torrent_added_alert*>(alert.get()));
 
         case libtorrent::torrent_finished_alert::alert_type:
-            return gcnew TorrentFinishedAlert((libtorrent::torrent_finished_alert*) alert.get());
+            return gcnew TorrentFinishedAlert(static_cast<libtorrent::torrent_finished_alert*>(alert.get()));
 
         case libtorrent::torrent_paused_alert::alert_type:
-            return gcnew TorrentPausedAlert((libtorrent::torrent_paused_alert*) alert.get());
+            return gcnew TorrentPausedAlert(static_cast<libtorrent::torrent_paused_alert*>(alert.get()));
 
         case libtorrent::torrent_removed_alert::alert_type:
-            return gcnew TorrentRemovedAlert((libtorrent::torrent_removed_alert*) alert.get());
+            return gcnew TorrentRemovedAlert(static_cast<libtorrent::torrent_removed_alert*>(alert.get()));
 
         case libtorrent::torrent_resumed_alert::alert_type:
-            return gcnew TorrentResumedAlert((libtorrent::torrent_resumed_alert*) alert.get());
+            return gcnew TorrentResumedAlert(static_cast<libtorrent::torrent_resumed_alert*>(alert.get()));
 
         case libtorrent::torrent_checked_alert::alert_type:
-            return gcnew TorrentCheckedAlert((libtorrent::torrent_checked_alert*) alert.get());
+            return gcnew TorrentCheckedAlert(static_cast<libtorrent::torrent_checked_alert*>(alert.get()));
         }
 
         return nullptr;
