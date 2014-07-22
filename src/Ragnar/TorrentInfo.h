@@ -7,6 +7,8 @@ namespace libtorrent
 
 namespace Ragnar
 {
+    ref class FileEntry;
+
     public ref class TorrentInfo
     {
     private:
@@ -47,7 +49,8 @@ namespace Ragnar
 
         property int NumFiles { int get(); }
 
-        // TODO: file_entry file_at (int index) const;
+        FileEntry^ FileAt(int index);
+
         // TODO: std::vector<file_slice> map_block(int piece, size_type offset, int size) const;
         // TODO: peer_request map_file(int file, size_type offset, int size) const;
 

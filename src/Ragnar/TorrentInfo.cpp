@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "FileEntry.h"
 #include "TorrentInfo.h"
 #include "Utils.h"
 
@@ -67,6 +68,11 @@ namespace Ragnar
     int TorrentInfo::NumFiles::get()
     {
         return this->_info->num_files();
+    }
+
+    FileEntry^ TorrentInfo::FileAt(int index)
+    {
+        return gcnew FileEntry(this->_info->file_at(index));
     }
 
     System::String^ TorrentInfo::SslCert::get()
