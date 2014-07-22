@@ -56,7 +56,7 @@ namespace Ragnar
 
         void SetPriority(int priority);
 
-        // file_progress
+        cli::array<long long>^ GetFileProgresses();
 
         void ClearError();
 
