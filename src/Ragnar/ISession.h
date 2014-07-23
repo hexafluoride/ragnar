@@ -7,6 +7,7 @@ namespace Ragnar
     ref class AddTorrentParams;
     interface class IAlertFactory;
     enum class SessionAlertCategory : unsigned int;
+    ref class SessionSettings;
     ref class SessionStatus;
     ref class TorrentHandle;
 
@@ -48,6 +49,10 @@ namespace Ragnar
         property int SslListenPort { int get(); }
 
         void RemoveTorrent(TorrentHandle^ handle);
+
+        SessionSettings^ QuerySettings();
+
+        void SetSettings(SessionSettings^ settings);
 
         property IAlertFactory^ Alerts { IAlertFactory^ get(); }
 

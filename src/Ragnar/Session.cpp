@@ -4,6 +4,7 @@
 #include "Fingerprint.h"
 #include "Session.h"
 #include "SessionAlertCategory.h"
+#include "SessionSettings.h"
 #include "SessionStatus.h"
 #include "TorrentHandle.h"
 #include "Utils.h"
@@ -156,6 +157,16 @@ namespace Ragnar
     void Session::RemoveTorrent(TorrentHandle^ handle)
     {
         this->_session->remove_torrent(*handle->get_ptr());
+    }
+
+    SessionSettings^ Session::QuerySettings()
+    {
+        return gcnew SessionSettings(this->_session->settings());
+    }
+
+    void Session::SetSettings(SessionSettings^ settings)
+    {
+        this->_session->set_settings(*settings->get_ptr());
     }
 
     IAlertFactory^ Session::Alerts::get()

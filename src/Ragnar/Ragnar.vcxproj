@@ -101,6 +101,7 @@
     <ClInclude Include="SaveResumeDataAlert.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionAlertCategory.h" />
+    <ClInclude Include="SessionSettings.h" />
     <ClInclude Include="SessionStatus.h" />
     <ClInclude Include="SHA1Hash.h" />
     <ClInclude Include="StateChangedAlert.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="PeerInfo.cpp" />
     <ClCompile Include="SaveResumeDataAlert.cpp" />
     <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionSettings.cpp" />
     <ClCompile Include="SessionStatus.cpp" />
     <ClCompile Include="SHA1Hash.cpp" />
     <ClCompile Include="StateChangedAlert.cpp" />

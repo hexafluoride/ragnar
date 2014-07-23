@@ -106,8 +106,10 @@ namespace Ragnar
 
         virtual void RemoveTorrent(TorrentHandle^ handle); // TODO: options = 0
 
-        // TODO: session_settings settings () const;
-        // TODO: void set_settings(session_settings const& s);
+        virtual SessionSettings^ QuerySettings();
+
+        virtual void SetSettings(SessionSettings^ settings);
+
         // TODO: pe_settings get_pe_settings() const;
         // TODO: void set_pe_settings(pe_settings const& settings);
 
