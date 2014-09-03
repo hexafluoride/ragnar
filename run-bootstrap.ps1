@@ -82,12 +82,12 @@ if (!(Test-Path $LIBTORRENT_ROOT)) {
 # Bootstrap Boost
 Write-Host "Bootstrapping Boost"
 $boost_bootstrap = Join-Path $BOOST_ROOT "bootstrap.bat"
-Start-Process "$boost_bootstrap" -NoNewWindow -Wait -WorkingDirectory $BOOST_ROOT
+# Start-Process "$boost_bootstrap" -NoNewWindow -Wait -WorkingDirectory $BOOST_ROOT
 
 # Build Boost
 Write-Host "Building Boost. This *WILL* take a while."
 $boost_b2 = Join-Path $BOOST_ROOT "b2.exe"
-Start-Process "$boost_b2" -ArgumentList "toolset=msvc-12.0 --with-date_time --with-system --with-thread" -NoNewWindow -Wait -WorkingDirectory $BOOST_ROOT
+Start-Process "$boost_b2" -ArgumentList "toolset=msvc-12.0 link=shared runtime-link=shared --with-date_time --with-system --with-thread" -NoNewWindow -Wait -WorkingDirectory $BOOST_ROOT
 
 # Build libtorrent
 Write-Host "Building libtorrent. May take a while."
@@ -96,6 +96,6 @@ $env:BOOST_ROOT = "$BOOST_ROOT"
 $env:CL = "/I$BOOST_ROOT"
 
 $bjam = Join-Path $BOOST_ROOT "bjam.exe"
-$libtorrent_args = "toolset=msvc-12.0 boost-link=static geoip=off encryption=tommath link=static variant"
+$libtorrent_args = "toolset=msvc-12.0 boost=source boost-link=shared geoip=off encryption=tommath link=shared variant"
 Start-Process "$bjam" -ArgumentList "$libtorrent_args=debug" -NoNewWindow -Wait -WorkingDirectory $LIBTORRENT_ROOT
 Start-Process "$bjam" -ArgumentList "$libtorrent_args=release" -NoNewWindow -Wait -WorkingDirectory $LIBTORRENT_ROOT

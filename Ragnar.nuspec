@@ -13,6 +13,12 @@
     <tags>BitTorrent LibTorrent</tags>
   </metadata>
   <files>
-    <file src="Release/Ragnar.dll" target="lib\net45" />
+    <file src="build/bin/Ragnar.dll" target="lib\net45" />
+    <file src="build/bin/boost_chrono-vc120-mt-1_55.dll" target="content\net45" />
+    <file src="build/bin/boost_date_time-vc120-mt-1_55.dll" target="content\net45" />
+    <file src="build/bin/boost_system-vc120-mt-1_55.dll" target="content\net45" />
+    <file src="build/bin/boost_thread-vc120-mt-1_55.dll" target="content\net45" />
+    <file src="build/bin/torrent.dll" target="content\net45" />
+    <file src="install.ps1" target="tools\install.ps1" />
   </files>
 </package>

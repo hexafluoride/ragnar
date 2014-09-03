@@ -47,35 +47,35 @@
     <LinkIncremental>true</LinkIncremental>
     <ReferencePath>Debug;$(ReferencePath)</ReferencePath>
     <IncludePath>$(BoostDir);$(LibtorrentDir)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BoostDir)\stage\lib;$(LibtorrentDir)\bin\msvc-12.0\debug\link-static\threading-multi;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(BoostDir)\stage\lib;$(LibtorrentDir)\bin\msvc-12.0\debug\boost-link-shared\boost-source\threading-multi;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(BoostDir);$(LibtorrentDir)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BoostDir)\stage\lib;$(LibtorrentDir)\bin\msvc-12.0\release\link-static\threading-multi;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(BoostDir)\stage\lib;$(LibtorrentDir)\bin\msvc-12.0\release\boost-link-shared\boost-source\threading-multi;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x0501;WIN32;BOOST_ASIO_ENABLE_CANCELIO;BOOST_ASIO_HASH_MAP_BUCKETS=1021;BOOST_ASIO_SEPARATE_COMPILATION;BOOST_EXCEPTION_DISABLE;TORRENT_DEBUG;TORRENT_DISABLE_GEO_IP;TORRENT_USE_I2P=1;TORRENT_USE_TOMMATH;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0501;WIN32;BOOST_ASIO_DYN_LINK;BOOST_ALL_DYN_LINK;TORRENT_LINKING_SHARED</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libtorrent.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>torrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <PreprocessorDefinitions>_WIN32_WINNT=0x0501;WIN32;BOOST_ASIO_ENABLE_CANCELIO;BOOST_ASIO_HASH_MAP_BUCKETS=1021;BOOST_ASIO_SEPARATE_COMPILATION;BOOST_EXCEPTION_DISABLE;NDEBUG;TORRENT_DISABLE_GEO_IP;TORRENT_USE_I2P=1;TORRENT_USE_TOMMATH;_CRT_SECURE_NO_DEPRECATE;_SCL_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0501;WIN32;BOOST_ASIO_DYN_LINK;BOOST_ALL_DYN_LINK;TORRENT_LINKING_SHARED</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libtorrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>torrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
