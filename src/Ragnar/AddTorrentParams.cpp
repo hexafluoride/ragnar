@@ -141,6 +141,16 @@ namespace Ragnar
         this->_params->download_limit = value;
     }
 
+    bool AddTorrentParams::SeedMode::get()
+    {
+        return this->_params->seed_mode;
+    }
+
+    void AddTorrentParams::SeedMode::set(bool value)
+    {
+        this->_params->seed_mode = value;
+    }
+
     AddTorrentParams^ Ragnar::AddTorrentParams::FromMagnetUri(System::String^ uri)
     {
         libtorrent::add_torrent_params params;
