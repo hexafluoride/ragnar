@@ -73,6 +73,12 @@ namespace Ragnar
 
         property int DownloadLimit { int get(); void set(int value); }
 
+        property bool SeedMode 
+        {
+            void set(bool value);
+            bool get();
+        }
+
         static AddTorrentParams^ FromMagnetUri(System::String^ uri);
     };
 }
