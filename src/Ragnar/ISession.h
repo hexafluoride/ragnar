@@ -49,6 +49,8 @@ namespace Ragnar
         property int SslListenPort { int get(); }
 
         void RemoveTorrent(TorrentHandle^ handle);
+        
+        void RemoveTorrent(TorrentHandle^ handle, bool removeData);
 
         SessionSettings^ QuerySettings();
 

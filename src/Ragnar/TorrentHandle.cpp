@@ -358,4 +358,24 @@ namespace Ragnar
     {
         this->_handle->super_seeding(value);
     }
+
+    bool TorrentHandle::IsFinished::get()
+    {
+        return this->_handle->is_finished();
+    }
+
+    bool TorrentHandle::IsPaused::get()
+    {
+        return this->_handle->is_paused();
+    }
+
+    bool TorrentHandle::IsSeed::get()
+    {
+        return this->_handle->is_seed();
+    }
+
+    bool TorrentHandle::HasMetadata::get()
+    {
+        return this->_handle->has_metadata();
+    }
 }

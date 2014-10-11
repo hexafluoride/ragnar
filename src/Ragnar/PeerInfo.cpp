@@ -16,6 +16,11 @@ namespace Ragnar
         delete this->_info;
     }
 
+    PeerFlags PeerInfo::Flags::get()
+    {
+        return (PeerFlags)this->_info->flags;
+    }
+
     System::Net::IPEndPoint^ PeerInfo::EndPoint::get()
     {
         auto address = Utils::GetIPAddress(this->_info->ip.address());
@@ -110,6 +115,11 @@ namespace Ragnar
     int PeerInfo::NumHashfails::get()
     {
         return this->_info->num_hashfails;
+    }
+
+    System::String^ PeerInfo::CountryCode::get()
+    {
+        return gcnew System::String(this->_info->country);
     }
 
     System::String^ PeerInfo::InetAsName::get()
@@ -220,6 +230,11 @@ namespace Ragnar
     int PeerInfo::UploadRatePeak::get()
     {
         return this->_info->upload_rate_peak;
+    }
+
+    float PeerInfo::Progress::get()
+    {
+        return this->_info->progress;
     }
 
     int PeerInfo::ProgressPpm::get()

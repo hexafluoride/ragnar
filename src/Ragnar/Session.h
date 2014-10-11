@@ -104,7 +104,9 @@ namespace Ragnar
 
         virtual property int SslListenPort { int get(); }
 
-        virtual void RemoveTorrent(TorrentHandle^ handle); // TODO: options = 0
+        virtual void RemoveTorrent(TorrentHandle^ handle);
+
+        virtual void RemoveTorrent(TorrentHandle^ handle, bool removeData);
 
         virtual SessionSettings^ QuerySettings();
 

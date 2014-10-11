@@ -7,6 +7,32 @@ namespace libtorrent
 
 namespace Ragnar
 {
+    [System::FlagsAttribute]
+    public enum class PeerFlags : unsigned int
+    {
+        Interesting = 0x1,
+        Choked = 0x2,
+        RemoteInterested = 0x4,
+        RemoteChoked = 0x8,
+        SupportsExtensions = 0x10,
+        LocalConnection = 0x20,
+        Handshake = 0x40,
+        Connecting = 0x80,
+        Queued = 0x100,
+        OnParole = 0x200,
+        Seed = 0x400,
+        OptimisticUnchoke = 0x800,
+        Snubbed = 0x1000,
+        UploadOnly = 0x2000,
+        EndgameMode = 0x4000,
+        Holepunched = 0x8000,
+        I2pSocket = 0x10000,
+        UtpSocket = 0x20000,
+        SslSocket = 0x40000,
+        Rc4Encrypted = 0x100000,
+        PlainTextEncrypted = 0x200000
+    };
+
     public ref class PeerInfo
     {
     private:
@@ -18,7 +44,8 @@ namespace Ragnar
     public:
         ~PeerInfo();
 
-        // TODO: boost::uint32_t flags;
+        property PeerFlags Flags { PeerFlags get(); }
+
         // TODO: int source;
         // TODO: char read_state;
         // TODO: char write_state;
@@ -64,7 +91,7 @@ namespace Ragnar
 
         property int NumHashfails { int get(); }
 
-        // TODO:    char country[2];
+        property System::String^ CountryCode { System::String^ get(); }
 
         property System::String^ InetAsName { System::String^ get(); }
 
@@ -111,6 +138,8 @@ namespace Ragnar
         property int DownloadRatePeak { int get(); }
 
         property int UploadRatePeak { int get(); }
+
+        property float Progress { float get(); }
 
         property int ProgressPpm { int get(); }
 

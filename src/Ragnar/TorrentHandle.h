@@ -162,5 +162,13 @@ namespace Ragnar
         void RenameFile(int fileIndex, System::String^ fileName);
 
         property bool SuperSeeding { bool get(); void set(bool value); }
+
+        property bool IsFinished { bool get(); }
+
+        property bool IsPaused { bool get(); }
+
+        property bool IsSeed { bool get(); }
+
+        property bool HasMetadata { bool get(); }
     };
 }

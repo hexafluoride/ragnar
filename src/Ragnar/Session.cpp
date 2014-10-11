@@ -156,7 +156,12 @@ namespace Ragnar
 
     void Session::RemoveTorrent(TorrentHandle^ handle)
     {
-        this->_session->remove_torrent(*handle->get_ptr());
+        this->RemoveTorrent(handle, false);
+    }
+
+    void Session::RemoveTorrent(TorrentHandle^ handle, bool removeData)
+    {
+        this->_session->remove_torrent(*handle->get_ptr(), removeData ? libtorrent::session::delete_files : 0);
     }
 
     SessionSettings^ Session::QuerySettings()
