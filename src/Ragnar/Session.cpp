@@ -29,6 +29,18 @@ namespace Ragnar
 
     Session::~Session()
     {
+        if (this->_disposed)
+        {
+            return;
+        }
+
+        this->!Session();
+
+        this->_disposed = true;
+    }
+
+    Session::!Session()
+    {
         delete this->_session;
     }
 

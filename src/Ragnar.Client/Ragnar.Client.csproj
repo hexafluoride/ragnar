@@ -125,7 +125,28 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\..\packages\boost_1_55_0\stage\lib\boost_chrono-vc120-mt-gd-1_55.dll">
+      <Link>boost_chrono-vc120-mt-gd-1_55.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\packages\boost_1_55_0\stage\lib\boost_date_time-vc120-mt-gd-1_55.dll">
+      <Link>boost_date_time-vc120-mt-gd-1_55.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\packages\boost_1_55_0\stage\lib\boost_system-vc120-mt-gd-1_55.dll">
+      <Link>boost_system-vc120-mt-gd-1_55.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\packages\boost_1_55_0\stage\lib\boost_thread-vc120-mt-gd-1_55.dll">
+      <Link>boost_thread-vc120-mt-gd-1_55.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\packages\libtorrent-rasterbar-1.0.2\bin\msvc-12.0\debug\boost-link-shared\boost-source\threading-multi\torrent.dll">
+      <Link>torrent.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

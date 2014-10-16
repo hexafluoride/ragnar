@@ -14,6 +14,7 @@ namespace Ragnar
     public ref class Session : ISession
     {
     private:
+        bool _disposed;
         libtorrent::session* _session;
         IAlertFactory^ _alertFactory;
 
@@ -22,6 +23,7 @@ namespace Ragnar
         Session(Fingerprint^ fingerprint);
 
         ~Session();
+        !Session();
 
         virtual void LoadState(cli::array<byte>^ buffer);
 
