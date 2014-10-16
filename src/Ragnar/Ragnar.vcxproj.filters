@@ -161,6 +161,9 @@
     <ClInclude Include="UnwantedBlockAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PieceFinishedAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -284,6 +287,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UnwantedBlockAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PieceFinishedAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

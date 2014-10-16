@@ -7,6 +7,7 @@
 #include "PeerBanAlert.h"
 #include "PeerConnectAlert.h"
 #include "PeerUnsnubbedAlert.h"
+#include "PieceFinishedAlert.h"
 #include "SaveResumeDataAlert.h"
 #include "StateChangedAlert.h"
 #include "StateUpdateAlert.h"
@@ -97,6 +98,9 @@ namespace Ragnar
 
         case libtorrent::peer_unsnubbed_alert::alert_type:
             return gcnew PeerUnsnubbedAlert(static_cast<libtorrent::peer_unsnubbed_alert*>(alert.get()));
+
+        case libtorrent::piece_finished_alert::alert_type:
+            return gcnew PieceFinishedAlert(static_cast<libtorrent::piece_finished_alert*>(alert.get()));
 
         case libtorrent::save_resume_data_alert::alert_type:
             return gcnew SaveResumeDataAlert(static_cast<libtorrent::save_resume_data_alert*>(alert.get()));
