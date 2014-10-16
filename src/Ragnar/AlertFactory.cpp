@@ -4,6 +4,8 @@
 #include "FileCompletedAlert.h"
 #include "FileRenamedAlert.h"
 #include "MetadataReceivedAlert.h"
+#include "PeerBanAlert.h"
+#include "PeerUnsnubbedAlert.h"
 #include "SaveResumeDataAlert.h"
 #include "StateChangedAlert.h"
 #include "StateUpdateAlert.h"
@@ -83,6 +85,12 @@ namespace Ragnar
 
         case libtorrent::metadata_received_alert::alert_type:
             return gcnew MetadataReceivedAlert(static_cast<libtorrent::metadata_received_alert*>(alert.get()));
+
+        case libtorrent::peer_ban_alert::alert_type:
+            return gcnew PeerBanAlert(static_cast<libtorrent::peer_ban_alert*>(alert.get()));
+
+        case libtorrent::peer_unsnubbed_alert::alert_type:
+            return gcnew PeerUnsnubbedAlert(static_cast<libtorrent::peer_unsnubbed_alert*>(alert.get()));
 
         case libtorrent::save_resume_data_alert::alert_type:
             return gcnew SaveResumeDataAlert(static_cast<libtorrent::save_resume_data_alert*>(alert.get()));

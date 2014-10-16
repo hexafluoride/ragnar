@@ -100,6 +100,7 @@
     <ClInclude Include="PeerAlert.h" />
     <ClInclude Include="PeerBanAlert.h" />
     <ClInclude Include="PeerInfo.h" />
+    <ClInclude Include="PeerUnsnubbedAlert.h" />
     <ClInclude Include="SaveResumeDataAlert.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionAlertCategory.h" />
@@ -142,6 +143,7 @@
     <ClCompile Include="PeerAlert.cpp" />
     <ClCompile Include="PeerBanAlert.cpp" />
     <ClCompile Include="PeerInfo.cpp" />
+    <ClCompile Include="PeerUnsnubbedAlert.cpp" />
     <ClCompile Include="SaveResumeDataAlert.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionSettings.cpp" />
