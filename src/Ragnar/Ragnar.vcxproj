@@ -104,6 +104,7 @@
     <ClInclude Include="PeerUnsnubbedAlert.h" />
     <ClInclude Include="PieceFinishedAlert.h" />
     <ClInclude Include="SaveResumeDataAlert.h" />
+    <ClInclude Include="ScrapeReplyAlert.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="SessionAlertCategory.h" />
     <ClInclude Include="SessionSettings.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="PeerUnsnubbedAlert.cpp" />
     <ClCompile Include="PieceFinishedAlert.cpp" />
     <ClCompile Include="SaveResumeDataAlert.cpp" />
+    <ClCompile Include="ScrapeReplyAlert.cpp" />
     <ClCompile Include="Session.cpp" />
     <ClCompile Include="SessionSettings.cpp" />
     <ClCompile Include="SessionStatus.cpp" />

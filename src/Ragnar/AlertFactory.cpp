@@ -9,6 +9,7 @@
 #include "PeerUnsnubbedAlert.h"
 #include "PieceFinishedAlert.h"
 #include "SaveResumeDataAlert.h"
+#include "ScrapeReplyAlert.h"
 #include "StateChangedAlert.h"
 #include "StateUpdateAlert.h"
 #include "StatsAlert.h"
@@ -105,6 +106,9 @@ namespace Ragnar
 
         case libtorrent::save_resume_data_alert::alert_type:
             return gcnew SaveResumeDataAlert(static_cast<libtorrent::save_resume_data_alert*>(alert.get()));
+
+        case libtorrent::scrape_reply_alert::alert_type:
+            return gcnew ScrapeReplyAlert(static_cast<libtorrent::scrape_reply_alert*>(alert.get()));
 
         case libtorrent::state_changed_alert::alert_type:
             return gcnew StateChangedAlert(static_cast<libtorrent::state_changed_alert*>(alert.get()));

@@ -170,6 +170,9 @@
     <ClInclude Include="TrackerAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ScrapeReplyAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -302,6 +305,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TrackerAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrapeReplyAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
