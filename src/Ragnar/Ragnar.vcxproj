@@ -99,6 +99,7 @@
     <ClInclude Include="PartialPieceInfo.h" />
     <ClInclude Include="PeerAlert.h" />
     <ClInclude Include="PeerBanAlert.h" />
+    <ClInclude Include="PeerConnectAlert.h" />
     <ClInclude Include="PeerInfo.h" />
     <ClInclude Include="PeerUnsnubbedAlert.h" />
     <ClInclude Include="SaveResumeDataAlert.h" />
@@ -142,6 +143,7 @@
     <ClCompile Include="PartialPieceInfo.cpp" />
     <ClCompile Include="PeerAlert.cpp" />
     <ClCompile Include="PeerBanAlert.cpp" />
+    <ClCompile Include="PeerConnectAlert.cpp" />
     <ClCompile Include="PeerInfo.cpp" />
     <ClCompile Include="PeerUnsnubbedAlert.cpp" />
     <ClCompile Include="SaveResumeDataAlert.cpp" />

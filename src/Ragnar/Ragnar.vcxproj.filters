@@ -152,6 +152,9 @@
     <ClInclude Include="PeerUnsnubbedAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PeerConnectAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -266,6 +269,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PeerUnsnubbedAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PeerConnectAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
