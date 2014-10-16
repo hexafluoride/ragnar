@@ -11,6 +11,7 @@
 #include "StateChangedAlert.h"
 #include "StateUpdateAlert.h"
 #include "StatsAlert.h"
+#include "StorageMovedAlert.h"
 #include "TorrentAddedAlert.h"
 #include "TorrentFinishedAlert.h"
 #include "TorrentPausedAlert.h"
@@ -107,6 +108,9 @@ namespace Ragnar
 
         case libtorrent::stats_alert::alert_type:
             return gcnew StatsAlert(static_cast<libtorrent::stats_alert*>(alert.get()));
+
+        case libtorrent::storage_moved_alert::alert_type:
+            return gcnew StorageMovedAlert(static_cast<libtorrent::storage_moved_alert*>(alert.get()));
 
         case libtorrent::torrent_added_alert::alert_type:
             return gcnew TorrentAddedAlert(static_cast<libtorrent::torrent_added_alert*>(alert.get()));

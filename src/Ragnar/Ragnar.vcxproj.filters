@@ -155,6 +155,9 @@
     <ClInclude Include="PeerConnectAlert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StorageMovedAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -272,6 +275,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PeerConnectAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StorageMovedAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

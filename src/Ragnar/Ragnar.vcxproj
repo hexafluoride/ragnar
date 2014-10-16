@@ -113,6 +113,7 @@
     <ClInclude Include="StatsAlert.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="Interop\StringValueConverter.h" />
+    <ClInclude Include="StorageMovedAlert.h" />
     <ClInclude Include="TorrentAddedAlert.h" />
     <ClInclude Include="TorrentAlert.h" />
     <ClInclude Include="TorrentCheckedAlert.h" />
@@ -159,6 +160,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Interop\StringValueConverter.cpp" />
+    <ClCompile Include="StorageMovedAlert.cpp" />
     <ClCompile Include="TorrentAddedAlert.cpp" />
     <ClCompile Include="TorrentAlert.cpp" />
     <ClCompile Include="TorrentCheckedAlert.cpp" />
