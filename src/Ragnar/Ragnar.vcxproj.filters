@@ -143,6 +143,12 @@
     <ClInclude Include="SessionSettings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PeerAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PeerBanAlert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stdafx.cpp">
@@ -248,6 +254,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SessionSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PeerAlert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PeerBanAlert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

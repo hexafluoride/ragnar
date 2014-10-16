@@ -97,6 +97,8 @@
     <ClInclude Include="ISession.h" />
     <ClInclude Include="MetadataReceivedAlert.h" />
     <ClInclude Include="PartialPieceInfo.h" />
+    <ClInclude Include="PeerAlert.h" />
+    <ClInclude Include="PeerBanAlert.h" />
     <ClInclude Include="PeerInfo.h" />
     <ClInclude Include="SaveResumeDataAlert.h" />
     <ClInclude Include="Session.h" />
@@ -137,6 +139,8 @@
     <ClCompile Include="Fingerprint.cpp" />
     <ClCompile Include="MetadataReceivedAlert.cpp" />
     <ClCompile Include="PartialPieceInfo.cpp" />
+    <ClCompile Include="PeerAlert.cpp" />
+    <ClCompile Include="PeerBanAlert.cpp" />
     <ClCompile Include="PeerInfo.cpp" />
     <ClCompile Include="SaveResumeDataAlert.cpp" />
     <ClCompile Include="Session.cpp" />

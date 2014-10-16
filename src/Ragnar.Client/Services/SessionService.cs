@@ -89,7 +89,7 @@ namespace Ragnar.Client.Services
                 InfoHash = alert.Handle.InfoHash.ToHex(),
                 Name = alert.Handle.TorrentFile.Name,
                 Size = alert.Handle.TorrentFile.TotalSize,
-                State = alert.Handle.QueryStatus().State
+                State = alert.Handle.GetStatus().State
             });
 
             _eventAggregator.PublishOnBackgroundThread(msg);
