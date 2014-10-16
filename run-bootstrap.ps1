@@ -10,10 +10,10 @@ $7ZA_EXE = Join-Path $7ZA_ROOT "7za.exe"
 $BOOST_URL = "http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.zip"
 $BOOST_PKG = Join-Path $LIBS_DIR "boost_1_55_0.zip"
 $BOOST_ROOT = Join-Path $LIBS_DIR "boost_1_55_0"
-$LIBTORRENT_URL = "http://downloads.sourceforge.net/project/libtorrent/libtorrent/libtorrent-rasterbar-1.0.1.tar.gz"
-$LIBTORRENT_PKG = Join-Path $LIBS_DIR "libtorrent-rasterbar-1.0.1.tar.gz"
-$LIBTORRENT_TAR = Join-Path $LIBS_DIR "libtorrent-rasterbar-1.0.1.tar"
-$LIBTORRENT_ROOT = Join-Path $LIBS_DIR "libtorrent-rasterbar-1.0.1"
+$LIBTORRENT_URL = "http://downloads.sourceforge.net/project/libtorrent/libtorrent/libtorrent-rasterbar-1.0.2.tar.gz"
+$LIBTORRENT_PKG = Join-Path $LIBS_DIR "libtorrent-rasterbar-1.0.2.tar.gz"
+$LIBTORRENT_TAR = Join-Path $LIBS_DIR "libtorrent-rasterbar-1.0.2.tar"
+$LIBTORRENT_ROOT = Join-Path $LIBS_DIR "libtorrent-rasterbar-1.0.2"
 
 function Download-File {
     param (

@@ -55,7 +55,7 @@ Task Output -depends Compile {
     Copy-Item "packages/boost_1_55_0/stage/lib/boost_thread-vc120-mt-1_55.dll" $Dir_Binaries
 
     # Copy libtorrent DLL
-    Copy-Item "packages/libtorrent-rasterbar-1.0.0/bin/msvc-12.0/$Configuration/boost-link-shared/boost-source/threading-multi/torrent.dll" $Dir_Binaries
+    Copy-Item "packages/libtorrent-rasterbar-1.0.2/bin/msvc-12.0/$Configuration/boost-link-shared/boost-source/threading-multi/torrent.dll" $Dir_Binaries
 }
 
 Task NuGet-Pack -depends Output {

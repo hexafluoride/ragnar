@@ -16,7 +16,7 @@
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>Ragnar</RootNamespace>
     <BoostDir>$(SolutionDir)\packages\boost_1_55_0</BoostDir>
-    <LibtorrentDir>$(SolutionDir)\packages\libtorrent-rasterbar-1.0.1</LibtorrentDir>
+    <LibtorrentDir>$(SolutionDir)\packages\libtorrent-rasterbar-1.0.2</LibtorrentDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
