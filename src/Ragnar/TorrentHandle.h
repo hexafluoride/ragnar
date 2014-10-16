@@ -17,6 +17,7 @@ namespace Ragnar
     public ref class TorrentHandle
     {
     private:
+        bool _disposed;
         libtorrent::torrent_handle* _handle;
 
     internal:
@@ -34,6 +35,8 @@ namespace Ragnar
 
         ~TorrentHandle();
 
+        !TorrentHandle();
+
         // add_piece
         
         void ReadPiece(int pieceIndex);
@@ -44,7 +47,7 @@ namespace Ragnar
 
         property SHA1Hash^ InfoHash { SHA1Hash^ get(); }
 
-        TorrentStatus^ QueryStatus();
+        TorrentStatus^ GetStatus();
 
         System::Collections::Generic::IEnumerable<PartialPieceInfo^>^ GetDownloadQueue();
 
@@ -60,7 +63,8 @@ namespace Ragnar
 
         void ClearError();
 
-        // add_tracker()
+        void AddTracker(AnnounceEntry^ entry);
+
         // replace_trackers()
 
         System::Collections::Generic::IEnumerable<AnnounceEntry^>^ GetTrackers();

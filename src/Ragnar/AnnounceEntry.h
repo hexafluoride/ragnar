@@ -12,13 +12,20 @@ namespace Ragnar
     public ref class AnnounceEntry
     {
     private:
+        bool _disposed;
         libtorrent::announce_entry* _entry;
 
     internal:
+        libtorrent::announce_entry* get_ptr() { return this->_entry; }
+
         AnnounceEntry(const libtorrent::announce_entry &entry);
 
     public:
+        AnnounceEntry(String^ url);
+
         ~AnnounceEntry();
+
+        !AnnounceEntry();
 
         property String^ Url { String^ get(); }
 

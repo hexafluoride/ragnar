@@ -21,6 +21,18 @@ namespace Ragnar
 
     TorrentHandle::~TorrentHandle()
     {
+        if (this->_disposed)
+        {
+            return;
+        }
+
+        this->!TorrentHandle();
+
+        this->_disposed = true;
+    }
+
+    TorrentHandle::!TorrentHandle()
+    {
         delete this->_handle;
     }
 
@@ -54,7 +66,7 @@ namespace Ragnar
         return gcnew SHA1Hash(this->_handle->info_hash());
     }
 
-    TorrentStatus^ TorrentHandle::QueryStatus()
+    TorrentStatus^ TorrentHandle::GetStatus()
     {
         return gcnew TorrentStatus(this->_handle->status());
     }
@@ -112,6 +124,11 @@ namespace Ragnar
     void TorrentHandle::ClearError()
     {
         this->_handle->clear_error();
+    }
+
+    void TorrentHandle::AddTracker(AnnounceEntry^ entry)
+    {
+        this->_handle->add_tracker(*entry->get_ptr());
     }
 
     System::Collections::Generic::IEnumerable<AnnounceEntry^>^ TorrentHandle::GetTrackers()

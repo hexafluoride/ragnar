@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "AnnounceEntry.h"
+#include "Utils.h"
 
 #include <libtorrent\torrent_info.hpp>
 
@@ -12,7 +13,24 @@ namespace Ragnar
         this->_entry = new libtorrent::announce_entry(entry);
     }
 
+    AnnounceEntry::AnnounceEntry(String^ url)
+    {
+        this->_entry = new libtorrent::announce_entry(Utils::GetStdStringFromManagedString(url));
+    }
+
     AnnounceEntry::~AnnounceEntry()
+    {
+        if (this->_disposed)
+        {
+            return;
+        }
+
+        this->!AnnounceEntry();
+
+        this->_disposed = true;
+    }
+
+    AnnounceEntry::!AnnounceEntry()
     {
         delete this->_entry;
     }
