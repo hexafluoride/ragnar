@@ -119,6 +119,7 @@
     <ClInclude Include="TorrentAlert.h" />
     <ClInclude Include="TorrentCheckedAlert.h" />
     <ClInclude Include="TorrentCreator.h" />
+    <ClInclude Include="TorrentErrorAlert.h" />
     <ClInclude Include="TorrentFinishedAlert.h" />
     <ClInclude Include="TorrentHandle.h" />
     <ClInclude Include="TorrentInfo.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="TorrentAlert.cpp" />
     <ClCompile Include="TorrentCheckedAlert.cpp" />
     <ClCompile Include="TorrentCreator.cpp" />
+    <ClCompile Include="TorrentErrorAlert.cpp" />
     <ClCompile Include="TorrentFinishedAlert.cpp" />
     <ClCompile Include="TorrentHandle.cpp" />
     <ClCompile Include="TorrentInfo.cpp" />
